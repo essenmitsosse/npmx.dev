@@ -27,19 +27,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <article
-    class="group card-interactive scroll-mt-48 scroll-mb-6 relative focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-bg focus-within:ring-offset-2 focus-within:ring-fg/50"
-    :class="{
-      'bg-bg-muted border-border-hover': selected,
-      'border-accent/30 bg-accent/5': isExactMatch,
-    }"
-  >
-    <!-- Glow effect for exact matches -->
-    <div
-      v-if="isExactMatch"
-      class="absolute -inset-px rounded-lg bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 opacity-100 blur-sm -z-1 pointer-events-none motion-reduce:opacity-50"
-      aria-hidden="true"
-    />
+  <Card :selected="selected" :isExactMatch="isExactMatch">
     <div class="mb-2 flex items-baseline justify-start gap-2">
       <component
         :is="headingLevel ?? 'h3'"
@@ -173,5 +161,5 @@ const emit = defineEmits<{
         {{ keyword }}
       </li>
     </ul>
-  </article>
+  </Card>
 </template>
