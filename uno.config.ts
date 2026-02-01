@@ -162,9 +162,6 @@ export default defineConfig({
 
     // Subtle divider
     ['divider', 'border-t border-border'],
-
-    // Section spacing
-    ['section', 'py-8 sm:py-12'],
   ],
   rules: [
     // Custom scale for active states
