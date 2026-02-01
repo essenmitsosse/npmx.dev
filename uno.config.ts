@@ -156,9 +156,6 @@ export default defineConfig({
     ['badge-purple', 'bg-badge-purple/10 text-badge-purple'],
     ['badge-pink', 'bg-badge-pink/10 text-badge-pink'],
     ['badge-subtle', 'bg-bg-subtle text-fg-subtle'],
-
-    // Skeleton loading
-    ['skeleton', 'bg-bg-elevated rounded animate-skeleton-pulse'],
   ],
   rules: [
     // Custom scale for active states
