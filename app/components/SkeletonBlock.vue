@@ -1,10 +1,3 @@
-<!-- Vue component that only takes a class as prop and adds `bg-bg-elevated rounded animate-skeleton-pulse` to that class -->
-<script setup lang="ts">
-const props = defineProps<{
-  class?: string
-}>()
-</script>
-
 <template>
-  <div :class="`bg-bg-elevated rounded animate-skeleton-pulse ${props.class ?? ''}`" />
+  <div class="bg-bg-elevated rounded animate-skeleton-pulse" />
 </template>

@@ -12,7 +12,7 @@ defineProps<{
 </script>
 
 <template>
-  <Card :isExactMatch="isExactMatch">
+  <BaseCard :isExactMatch="isExactMatch">
     <NuxtLink
       :to="type === 'user' ? `/~${name}` : `/@${name}`"
       :data-suggestion-index="index"
@@ -61,5 +61,5 @@ defineProps<{
         aria-hidden="true"
       />
     </NuxtLink>
-  </Card>
+  </BaseCard>
 </template>

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Card from '../Card.vue'
-
 const props = defineProps<{
   /** The search result object containing package data */
   result: NpmSearchResult
@@ -31,7 +29,7 @@ const pkgDescription = useMarkdown(() => ({
 </script>
 
 <template>
-  <Card :isExactMatch="isExactMatch">
+  <BaseCard :isExactMatch="isExactMatch">
     <div class="mb-2 flex items-baseline justify-start gap-2">
       <component
         :is="headingLevel ?? 'h3'"
@@ -160,5 +158,5 @@ const pkgDescription = useMarkdown(() => ({
         {{ keyword }}
       </li>
     </ul>
-  </Card>
+  </BaseCard>
 </template>
