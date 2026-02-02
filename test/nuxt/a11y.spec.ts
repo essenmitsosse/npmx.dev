@@ -57,6 +57,7 @@ afterEach(() => {
 import {
   AppFooter,
   AppHeader,
+  BaseCard,
   UserAvatar,
   BuildEnvironment,
   CallToAction,
@@ -206,6 +207,25 @@ describe('component accessibility audits', () => {
   describe('AppFooter', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(AppFooter)
+      const results = await runAxe(component)
+      expect(results.violations).toEqual([])
+    })
+  })
+
+  describe('BaseCard', () => {
+    it('should have no accessibility violations', async () => {
+      const component = await mountSuspended(BaseCard, {
+        slots: { default: '<p>Card content</p>' },
+      })
+      const results = await runAxe(component)
+      expect(results.violations).toEqual([])
+    })
+
+    it('should have no accessibility violations with exact match highlight', async () => {
+      const component = await mountSuspended(BaseCard, {
+        props: { isExactMatch: true },
+        slots: { default: '<p>Exact match content</p>' },
+      })
       const results = await runAxe(component)
       expect(results.violations).toEqual([])
     })
