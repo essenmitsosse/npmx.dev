@@ -33,8 +33,11 @@ const config: KnipConfig = {
         'vite-plus!',
         'h3',
         'puppeteer',
+        /** Needs to be explicitly installed, even though it is not imported, to avoid type errors. */
         'unplugin-vue-router',
         'vite-plugin-pwa',
+
+        /** Some components import types from here, but installing it directly could lead to a version mismatch */
         'vue-router',
       ],
       ignoreUnresolved: ['#components', '#oauth/config'],
