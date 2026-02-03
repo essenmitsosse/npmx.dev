@@ -357,61 +357,6 @@ export const currentLocales = buildLocales()
 
 export { lunariaJSONFiles }
 
-export const datetimeFormats = Object.values(currentLocales).reduce((acc, data) => {
-  const dateTimeFormats = data.dateTimeFormats
-  if (dateTimeFormats) {
-    acc[data.code] = { ...dateTimeFormats }
-    delete data.dateTimeFormats
-  } else {
-    acc[data.code] = {
-      shortDate: {
-        dateStyle: 'short',
-      },
-      short: {
-        dateStyle: 'short',
-        timeStyle: 'short',
-      },
-      long: {
-        dateStyle: 'long',
-        timeStyle: 'medium',
-      },
-    }
-  }
-
-  return acc
-}, {} as DateTimeFormats)
-
-export const numberFormats = Object.values(currentLocales).reduce((acc, data) => {
-  const numberFormats = data.numberFormats
-  if (numberFormats) {
-    acc[data.code] = { ...numberFormats }
-    delete data.numberFormats
-  } else {
-    acc[data.code] = {
-      percentage: {
-        style: 'percent',
-        maximumFractionDigits: 1,
-      },
-      smallCounting: {
-        style: 'decimal',
-        maximumFractionDigits: 0,
-      },
-      kiloCounting: {
-        notation: 'compact',
-        compactDisplay: 'short',
-        maximumFractionDigits: 1,
-      },
-      millionCounting: {
-        notation: 'compact',
-        compactDisplay: 'short',
-        maximumFractionDigits: 2,
-      },
-    }
-  }
-
-  return acc
-}, {} as NumberFormats)
-
 export const pluralRules = Object.values(currentLocales).reduce((acc, data) => {
   const pluralRule = data.pluralRule
   if (pluralRule) {
