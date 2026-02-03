@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { NuxtLinkProps } from '#app'
 
-const { current, ...props } = defineProps<
+const { current, disabled, ...props } = defineProps<
   {
     /** Disabled links will be displayed as plain text */
     disabled?: boolean
