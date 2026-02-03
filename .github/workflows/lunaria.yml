@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   lunaria-overview:
-    name: Generate Lunaria Overview
+    name: 🌝 Generate Lunaria Overview
     runs-on: ubuntu-latest
 
     steps:

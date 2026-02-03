@@ -21,6 +21,7 @@ permissions:
 
 jobs:
   lint:
+    name: 🔠 Lint project
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +39,7 @@ jobs:
         run: node scripts/lint.ts
 
   types:
+    name: 💪 Type check
     runs-on: ubuntu-latest
 
     steps:
@@ -59,6 +61,7 @@ jobs:
         run: pnpm test:types
 
   unit:
+    name: 🧪 Unit tests
     runs-on: ubuntu-latest
 
     steps:
@@ -80,6 +83,7 @@ jobs:
         run: pnpm test:unit --project unit run --coverage
 
   test:
+    name: 🧪 Component tests
     runs-on: ubuntu-latest
 
     steps:
@@ -100,7 +104,7 @@ jobs:
       - name: 🌐 Install browser
         run: pnpm playwright install chromium-headless-shell
 
-      - name: 🧪 Unit and component tests
+      - name: 🧪 Component tests
         run: pnpm vite test --project nuxt run --coverage
 
       - name: Upload coverage reports to Codecov
@@ -109,6 +113,7 @@ jobs:
           CODECOV_TOKEN: 17b4bed9-d407-4ce2-9c10-2ccd4328a1d9
 
   browser:
+    name: 🖥️ Browser tests
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.58.0-noble
@@ -135,6 +140,7 @@ jobs:
         run: pnpm test:browser:prebuilt
 
   a11y:
+    name: ♿ Accessibility audit
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -165,6 +171,7 @@ jobs:
           LIGHTHOUSE_COLOR_MODE: ${{ matrix.mode }}
 
   knip:
+    name: 🧹 Unused code check
     runs-on: ubuntu-latest
 
     steps:
@@ -182,5 +189,5 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install
 
-      - name: 🔍 Check for unused code
+      - name: 🧹 Check for unused code
         run: pnpm knip
