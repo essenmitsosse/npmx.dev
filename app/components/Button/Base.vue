@@ -21,7 +21,7 @@ defineExpose({
 <template>
   <button
     ref="el"
-    class="cursor-pointer inline-flex gap-x-1 items-center justify-center font-mono border border-border rounded-md transition-all duration-200 disabled:(opacity-40 cursor-not-allowed) aria-pressed:(bg-fg text-bg border-fg hover:enabled:(text-bg/50))"
+    class="cursor-pointer inline-flex gap-x-1 items-center justify-center font-mono border border-border rounded-md transition-all duration-200 disabled:(opacity-40 cursor-not-allowed border-transparent) aria-pressed:(bg-fg text-bg border-fg hover:enabled:(text-bg/50))"
     :class="{
       'text-sm px-4 py-2': variant !== 'tag',
       'text-xs px-2 py-0.5': variant === 'tag',

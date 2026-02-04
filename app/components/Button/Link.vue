@@ -25,7 +25,7 @@ const props = withDefaults(
 <template>
   <span
     v-if="disabled"
-    class="opacity-50 inline-flex gap-x-1 items-center justify-center font-mono border border-border rounded-md"
+    class="opacity-50 inline-flex gap-x-1 items-center justify-center font-mono border border-transparent rounded-md"
     :class="{
       'text-sm px-4 py-2': variant !== 'tag',
       'text-xs px-2 py-0.5': variant === 'tag',
