@@ -234,7 +234,7 @@ defineOgImageComponent('Default', {
       <p class="text-fg-muted mb-4">
         {{ error?.message ?? $t('org.page.failed_to_load') }}
       </p>
-      <NuxtLink to="/" class="btn">{{ $t('common.go_back_home') }}</NuxtLink>
+      <ButtonLink to="/">{{ $t('common.go_back_home') }}</ButtonLink>
     </div>
 
     <!-- Empty state -->

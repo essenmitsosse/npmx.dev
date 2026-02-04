@@ -81,6 +81,8 @@ async function loadOrgs() {
   }
 }
 
+error.value = $t('header.orgs_dropdown.error')
+
 // Load on mount and when connection status changes
 watch(isOwnProfile, loadOrgs, { immediate: true })
 
@@ -154,9 +156,9 @@ defineOgImageComponent('Default', {
       <!-- Not own profile state -->
       <div v-else-if="!isOwnProfile" class="py-12 text-center">
         <p class="text-fg-muted">{{ $t('user.orgs_page.own_orgs_only') }}</p>
-        <NuxtLink :to="`/~${npmUser}/orgs`" class="btn mt-4">{{
+        <ButtonLink :to="`/~${npmUser}/orgs`" class="mt-4">{{
           $t('user.orgs_page.view_your_orgs')
-        }}</NuxtLink>
+        }}</ButtonLink>
       </div>
 
       <!-- Loading state -->
@@ -165,7 +167,7 @@ defineOgImageComponent('Default', {
       <!-- Error state -->
       <div v-else-if="error" role="alert" class="py-12 text-center">
         <p class="text-fg-muted mb-4">{{ error }}</p>
-        <button type="button" class="btn" @click="loadOrgs">{{ $t('common.try_again') }}</button>
+        <ButtonBase @click="loadOrgs">{{ $t('common.try_again') }}</ButtonBase>
       </div>
 
       <!-- Empty state -->

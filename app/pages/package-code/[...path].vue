@@ -359,7 +359,7 @@ defineOgImageComponent('Default', {
     <!-- Error: no version -->
     <div v-if="!version" class="container py-20 text-center">
       <p class="text-fg-muted mb-4">{{ $t('code.version_required') }}</p>
-      <NuxtLink :to="packageRoute()" class="btn">{{ $t('code.go_to_package') }}</NuxtLink>
+      <ButtonLink :to="packageRoute()">{{ $t('code.go_to_package') }}</ButtonLink>
     </div>
 
     <!-- Loading state -->
@@ -371,7 +371,7 @@ defineOgImageComponent('Default', {
     <!-- Error state -->
     <div v-else-if="treeStatus === 'error'" class="container py-20 text-center" role="alert">
       <p class="text-fg-muted mb-4">{{ $t('code.failed_to_load_tree') }}</p>
-      <NuxtLink :to="packageRoute(version)" class="btn">{{ $t('code.back_to_package') }}</NuxtLink>
+      <ButtonLink :to="packageRoute(version)">{{ $t('code.back_to_package') }}</ButtonLink>
     </div>
 
     <!-- Main content: file tree + file viewer -->
@@ -472,15 +472,15 @@ defineOgImageComponent('Default', {
           <p class="text-fg-subtle text-sm mb-4">
             {{ $t('code.file_size_warning', { size: formatBytes(currentNode?.size ?? 0) }) }}
           </p>
-          <a
+          <ButtonLink
             :href="`https://cdn.jsdelivr.net/npm/${packageName}@${version}/${filePath}`"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn inline-flex items-center gap-2"
+            class="inline-flex items-center gap-2"
           >
             {{ $t('code.view_raw') }}
             <span class="i-carbon:launch w-4 h-4" />
-          </a>
+          </ButtonLink>
         </div>
 
         <!-- Loading file content -->
@@ -526,15 +526,15 @@ defineOgImageComponent('Default', {
           <div class="i-carbon:warning-alt w-8 h-8 mx-auto text-fg-subtle mb-4" />
           <p class="text-fg-muted mb-2">{{ $t('code.failed_to_load') }}</p>
           <p class="text-fg-subtle text-sm mb-4">{{ $t('code.unavailable_hint') }}</p>
-          <a
+          <ButtonLink
             :href="`https://cdn.jsdelivr.net/npm/${packageName}@${version}/${filePath}`"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn inline-flex items-center gap-2"
+            class="inline-flex items-center gap-2"
           >
             {{ $t('code.view_raw') }}
             <span class="i-carbon:launch w-4 h-4" />
-          </a>
+          </ButtonLink>
         </div>
 
         <!-- Directory listing (when no file selected or viewing a directory) -->
