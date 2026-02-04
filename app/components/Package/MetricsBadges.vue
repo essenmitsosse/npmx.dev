@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ButtonLink, TagStatic } from '#components'
+import { LinkBase, TagStatic } from '#components'
 
 const props = defineProps<{
   packageName: string
@@ -56,10 +56,10 @@ const typesHref = computed(() => {
     <!-- TypeScript types badge -->
     <li v-if="!props.isBinary">
       <TooltipApp :text="typesTooltip">
-        <ButtonLink v-if="typesHref" variant="tag" :to="typesHref">
+        <LinkBase v-if="typesHref" variant="tag" :to="typesHref">
           <span class="w-3 h-3 i-carbon-checkmark" aria-hidden="true" />
           {{ $t('package.metrics.types_label') }}
-        </ButtonLink>
+        </LinkBase>
         <TagStatic v-else :variant="hasTypes ? 'default' : 'disabled'" :tabindex="0">
           <span
             class="w-3 h-3"

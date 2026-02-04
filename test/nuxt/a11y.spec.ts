@@ -64,7 +64,7 @@ import {
   BaseCard,
   BuildEnvironment,
   ButtonBase,
-  ButtonLink,
+  LinkBase,
   CallToAction,
   CodeDirectoryListing,
   CodeFileTree,
@@ -331,9 +331,9 @@ describe('component accessibility audits', () => {
     })
   })
 
-  describe('ButtonLink', () => {
+  describe('LinkBase', () => {
     it('should have no accessibility violations', async () => {
-      const component = await mountSuspended(ButtonLink, {
+      const component = await mountSuspended(LinkBase, {
         props: { href: 'http://example.com' },
         slots: { default: 'Button link content' },
       })
@@ -342,7 +342,7 @@ describe('component accessibility audits', () => {
     })
 
     it("should have no accessibility violations when it's the current link", async () => {
-      const component = await mountSuspended(ButtonLink, {
+      const component = await mountSuspended(LinkBase, {
         props: { href: 'http://example.com', current: true },
         slots: { default: 'Button link content' },
       })
@@ -351,7 +351,7 @@ describe('component accessibility audits', () => {
     })
 
     it('should have no accessibility violations when disabled (plain text)', async () => {
-      const component = await mountSuspended(ButtonLink, {
+      const component = await mountSuspended(LinkBase, {
         props: { href: 'http://example.com', disabled: true },
         slots: { default: 'Button link content' },
       })

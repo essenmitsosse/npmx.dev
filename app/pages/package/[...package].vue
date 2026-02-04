@@ -1151,7 +1151,7 @@ defineOgImageComponent('Package', {
       <p class="text-fg-muted mb-8">
         {{ error?.message ?? $t('package.not_found_message') }}
       </p>
-      <ButtonLink to="/">{{ $t('common.go_back_home') }}</ButtonLink>
+      <LinkBase to="/">{{ $t('common.go_back_home') }}</LinkBase>
     </div>
   </main>
 </template>
