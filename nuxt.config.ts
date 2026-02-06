@@ -1,8 +1,6 @@
 import process from 'node:process'
 import { currentLocales } from './config/i18n'
-
-// log node env
-console.log(`Running Nuxt in ${process.env.NODE_ENV} mode`)
+import { isCI, provider } from 'std-env'
 
 export default defineNuxtConfig({
   modules: [
@@ -21,7 +19,7 @@ export default defineNuxtConfig({
       })
     },
     '@unocss/nuxt',
-    process.env.NODE_ENV === 'test' ? null : '@nuxtjs/html-validator',
+    '@nuxtjs/html-validator',
     '@nuxt/scripts',
     '@nuxt/a11y',
     '@nuxt/fonts',
@@ -198,6 +196,7 @@ export default defineNuxtConfig({
   },
 
   htmlValidator: {
+    enabled: !isCI || (provider !== 'vercel' && !!process.env.VALIDATE_HTML),
     failOnError: true,
   },
 
