@@ -150,7 +150,7 @@ onKeyStroke(
       </div>
 
       <!-- End: Desktop nav items + Mobile menu button -->
-      <div class="flex-shrink-0 flex items-center gap-0.5 sm:gap-2">
+      <div class="hidden sm:flex flex-shrink-0 items-center gap-0.5 sm:gap-2">
         <!-- Desktop: Compare link -->
         <LinkBase variant="button-secondary" to="/compare" keyshortcut="c">
           {{ $t('nav.compare') }}
@@ -161,21 +161,18 @@ onKeyStroke(
           {{ $t('nav.settings') }}
         </LinkBase>
 
-        <!-- Desktop: Account menu -->
-        <div class="hidden sm:block">
-          <HeaderAccountMenu />
-        </div>
-
-        <!-- Mobile: Menu button (always visible, click to open menu) -->
-        <ButtonBase
-          type="button"
-          class="sm:hidden flex"
-          :aria-label="$t('nav.open_menu')"
-          :aria-expanded="showMobileMenu"
-          @click="showMobileMenu = !showMobileMenu"
-          classicon="i-carbon:menu"
-        />
+        <HeaderAccountMenu />
       </div>
+
+      <!-- Mobile: Menu button (always visible, click to open menu) -->
+      <ButtonBase
+        type="button"
+        class="sm:hidden flex"
+        :aria-label="$t('nav.open_menu')"
+        :aria-expanded="showMobileMenu"
+        @click="showMobileMenu = !showMobileMenu"
+        classicon="i-carbon:menu"
+      />
     </nav>
 
     <!-- Mobile menu -->
