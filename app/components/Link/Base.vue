@@ -32,7 +32,9 @@ const props = withDefaults(
       'classicon'?: string
 
       'to'?: NuxtLinkProps['to']
-      'href'?: NuxtLinkProps['href']
+
+      /** always use `to` instead of `href` */
+      'href'?: never
     } & NuxtLinkProps
   >(),
   { variant: 'link' },
@@ -40,13 +42,12 @@ const props = withDefaults(
 
 const isLinkExternal = computed(
   () =>
-    !!props.href &&
-    typeof props.href === 'string' &&
-    !props.href.startsWith('/') &&
-    !props.href.startsWith('#'),
+    !!props.to &&
+    typeof props.to === 'string' &&
+    (props.to.startsWith('http:') || props.to.startsWith('https:') || props.to.startsWith('//')),
 )
 const isLinkAnchor = computed(
-  () => !!props.href && typeof props.href === 'string' && props.href.startsWith('#'),
+  () => !!props.to && typeof props.to === 'string' && props.to.startsWith('#'),
 )
 </script>
 
@@ -82,7 +83,8 @@ const isLinkAnchor = computed(
         variant === 'button-primary',
     }"
     :to="to"
-    :href="href"
+    :href="to"
+    :external="isLinkExternal"
     :aria-keyshortcuts="keyshortcut"
     :target="isLinkExternal ? '_blank' : undefined"
     :rel="isLinkExternal ? 'noopener noreferrer' : undefined"

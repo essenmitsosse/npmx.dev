@@ -19,7 +19,7 @@ const buildInfo = useAppConfig().buildInfo
     <span>&middot;</span>
     <LinkBase
       v-if="buildInfo.env === 'release'"
-      :href="`https://github.com/npmx-dev/npmx.dev/tag/v${buildInfo.version}`"
+      :to="`https://github.com/npmx-dev/npmx.dev/tag/v${buildInfo.version}`"
     >
       v{{ buildInfo.version }}
     </LinkBase>
@@ -27,7 +27,7 @@ const buildInfo = useAppConfig().buildInfo
 
     <template v-if="buildInfo.commit && buildInfo.branch !== 'release'">
       <span>&middot;</span>
-      <LinkBase :href="`https://github.com/npmx-dev/npmx.dev/commit/${buildInfo.commit}`">
+      <LinkBase :to="`https://github.com/npmx-dev/npmx.dev/commit/${buildInfo.commit}`">
         {{ buildInfo.shortCommit }}
       </LinkBase>
     </template>

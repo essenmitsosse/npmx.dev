@@ -309,7 +309,7 @@ function getTagVersions(tag: string): VersionDisplay[] {
     <template #actions>
       <LinkBase
         variant="button-secondary"
-        :href="`https://majors.nullvoxpopuli.com/q?packages=${packageName}`"
+        :to="`https://majors.nullvoxpopuli.com/q?packages=${packageName}`"
         :title="$t('package.downloads.community_distribution')"
         classicon="i-carbon:load-balancer-network"
       >

@@ -492,7 +492,7 @@ defineOgImageComponent('Default', {
           </p>
           <LinkBase
             variant="button-secondary"
-            :href="`https://cdn.jsdelivr.net/npm/${packageName}@${version}/${filePath}`"
+            :to="`https://cdn.jsdelivr.net/npm/${packageName}@${version}/${filePath}`"
             class="inline-flex items-center gap-2"
           >
             {{ $t('code.view_raw') }}
@@ -544,7 +544,7 @@ defineOgImageComponent('Default', {
           <p class="text-fg-subtle text-sm mb-4">{{ $t('code.unavailable_hint') }}</p>
           <LinkBase
             variant="button-secondary"
-            :href="`https://cdn.jsdelivr.net/npm/${packageName}@${version}/${filePath}`"
+            :to="`https://cdn.jsdelivr.net/npm/${packageName}@${version}/${filePath}`"
             class="inline-flex items-center gap-2"
           >
             {{ $t('code.view_raw') }}

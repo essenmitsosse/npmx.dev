@@ -18,16 +18,16 @@ const isHome = computed(() => route.name === 'index')
           <LinkBase to="/about">
             {{ $t('footer.about') }}
           </LinkBase>
-          <LinkBase href="https://docs.npmx.dev">
+          <LinkBase to="https://docs.npmx.dev">
             {{ $t('footer.docs') }}
           </LinkBase>
-          <LinkBase href="https://repo.npmx.dev">
+          <LinkBase to="https://repo.npmx.dev">
             {{ $t('footer.source') }}
           </LinkBase>
-          <LinkBase href="https://social.npmx.dev">
+          <LinkBase to="https://social.npmx.dev">
             {{ $t('footer.social') }}
           </LinkBase>
-          <LinkBase href="https://chat.npmx.dev">
+          <LinkBase to="https://chat.npmx.dev">
             {{ $t('footer.chat') }}
           </LinkBase>
         </div>

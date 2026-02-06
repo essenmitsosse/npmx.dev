@@ -330,7 +330,7 @@ describe('component accessibility audits', () => {
   describe('LinkBase', () => {
     it('should have no accessibility violations', async () => {
       const component = await mountSuspended(LinkBase, {
-        props: { href: 'http://example.com' },
+        props: { to: 'http://example.com' },
         slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
@@ -339,7 +339,7 @@ describe('component accessibility audits', () => {
 
     it("should have no accessibility violations when it's the current link", async () => {
       const component = await mountSuspended(LinkBase, {
-        props: { href: 'http://example.com', current: true },
+        props: { to: 'http://example.com', current: true },
         slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
@@ -348,7 +348,7 @@ describe('component accessibility audits', () => {
 
     it('should have no accessibility violations when disabled (plain text)', async () => {
       const component = await mountSuspended(LinkBase, {
-        props: { href: 'http://example.com', disabled: true },
+        props: { to: 'http://example.com', disabled: true },
         slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
@@ -357,7 +357,7 @@ describe('component accessibility audits', () => {
 
     it('should have no accessibility violations as secondary button', async () => {
       const component = await mountSuspended(LinkBase, {
-        props: { href: 'http://example.com', disabled: true, variant: 'button-secondary' },
+        props: { to: 'http://example.com', disabled: true, variant: 'button-secondary' },
         slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
@@ -366,7 +366,7 @@ describe('component accessibility audits', () => {
 
     it('should have no accessibility violations as primary button', async () => {
       const component = await mountSuspended(LinkBase, {
-        props: { href: 'http://example.com', disabled: true, variant: 'button-primary' },
+        props: { to: 'http://example.com', disabled: true, variant: 'button-primary' },
         slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
@@ -375,7 +375,7 @@ describe('component accessibility audits', () => {
 
     it('should have no accessibility violations as tag', async () => {
       const component = await mountSuspended(LinkBase, {
-        props: { href: 'http://example.com', disabled: true, variant: 'tag' },
+        props: { to: 'http://example.com', disabled: true, variant: 'tag' },
         slots: { default: 'Button link content' },
       })
       const results = await runAxe(component)
