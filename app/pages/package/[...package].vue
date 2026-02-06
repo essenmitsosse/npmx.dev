@@ -576,9 +576,8 @@ onKeyStroke(
                   variant="tag"
                   href="#provenance"
                   :aria-label="$t('package.provenance_section.view_more_details')"
-                >
-                  <span class="i-lucide-shield-check w-3.5 h-3.5 shrink-0" aria-hidden="true" />
-                </LinkBase>
+                  classicon="i-lucide-shield-check"
+                />
               </TooltipApp>
             </template>
             <span
@@ -650,24 +649,29 @@ onKeyStroke(
             :aria-label="$t('package.navigation')"
             class="hidden sm:flex items-center gap-0.5 p-0.5 bg-bg-subtle border border-border-subtle rounded-md shrink-0 ms-auto self-center"
           >
-            <LinkBase variant="button-secondary" v-if="docsLink" :to="docsLink" keyshortcut="d">
-              <span class="i-carbon:document w-3 h-3" aria-hidden="true" />
+            <LinkBase
+              variant="button-secondary"
+              v-if="docsLink"
+              :to="docsLink"
+              keyshortcut="d"
+              classicon="i-carbon:document"
+            >
               {{ $t('package.links.docs') }}
             </LinkBase>
             <LinkBase
               variant="button-secondary"
               :to="`/package-code/${pkg.name}/v/${resolvedVersion}`"
               keyshortcut="."
+              classicon="i-carbon:code"
             >
-              <span class="i-carbon:code w-3 h-3" aria-hidden="true" />
               {{ $t('package.links.code') }}
             </LinkBase>
             <LinkBase
               variant="button-secondary"
               :to="{ path: '/compare', query: { packages: pkg.name } }"
               keyshortcut="c"
+              classicon="i-carbon:compare"
             >
-              <span class="i-carbon:compare w-3 h-3" aria-hidden="true" />
               {{ $t('package.links.compare') }}
             </LinkBase>
           </nav>
@@ -695,8 +699,8 @@ onKeyStroke(
                 :href="repositoryUrl"
                 target="_blank"
                 rel="noopener noreferrer"
+                :classicon="repoProviderIcon"
               >
-                <span class="w-4 h-4" :class="repoProviderIcon" aria-hidden="true" />
                 <span v-if="repoRef">
                   {{ repoRef.owner }}<span class="opacity-50">/</span>{{ repoRef.repo }}
                 </span>
@@ -709,8 +713,8 @@ onKeyStroke(
                 :href="starsLink"
                 target="_blank"
                 rel="noopener noreferrer"
+                classicon="i-carbon:star"
               >
-                <span class="w-4 h-4 i-carbon:star" aria-hidden="true" />
                 {{ formatCompactNumber(stars, { decimals: 1 }) }}
               </LinkBase>
             </li>
@@ -720,8 +724,8 @@ onKeyStroke(
                 :href="forksLink"
                 target="_blank"
                 rel="noopener noreferrer"
+                classicon="i-carbon:fork"
               >
-                <span class="i-carbon:fork w-4 h-4" aria-hidden="true" />
                 {{ formatCompactNumber(forks, { decimals: 1 }) }}
               </LinkBase>
             </li>
@@ -731,8 +735,8 @@ onKeyStroke(
                 :href="homepageUrl"
                 target="_blank"
                 rel="noopener noreferrer"
+                classicon="i-carbon:link"
               >
-                <span class="i-carbon:link w-4 h-4" aria-hidden="true" />
                 {{ $t('package.links.homepage') }}
               </LinkBase>
             </li>
@@ -742,8 +746,8 @@ onKeyStroke(
                 :href="displayVersion.bugs.url"
                 target="_blank"
                 rel="noopener noreferrer"
+                classicon="i-carbon:warning"
               >
-                <span class="i-carbon:warning w-4 h-4" aria-hidden="true" />
                 {{ $t('package.links.issues') }}
               </LinkBase>
             </li>
@@ -754,8 +758,8 @@ onKeyStroke(
                 target="_blank"
                 rel="noopener noreferrer"
                 :title="$t('common.view_on_npm')"
+                classicon="i-carbon:logo-npm"
               >
-                <span class="i-carbon:logo-npm w-4 h-4" aria-hidden="true" />
                 npm
               </LinkBase>
             </li>
@@ -766,8 +770,8 @@ onKeyStroke(
                 target="_blank"
                 rel="noopener noreferrer"
                 :title="$t('badges.jsr.title')"
+                classicon="i-simple-icons:jsr"
               >
-                <span class="i-simple-icons:jsr w-4 h-4" aria-hidden="true" />
                 {{ $t('package.links.jsr') }}
               </LinkBase>
             </li>
@@ -777,15 +781,14 @@ onKeyStroke(
                 :href="fundingUrl"
                 target="_blank"
                 rel="noopener noreferrer"
+                classicon="i-carbon:favorite"
               >
-                <span class="i-carbon:favorite w-4 h-4" aria-hidden="true" />
                 {{ $t('package.links.fund') }}
               </LinkBase>
             </li>
             <!-- Mobile-only: Docs + Code + Compare links -->
             <li v-if="docsLink && displayVersion" class="sm:hidden">
-              <LinkBase variant="button-secondary" :to="docsLink">
-                <span class="i-carbon:document w-4 h-4" aria-hidden="true" />
+              <LinkBase variant="button-secondary" :to="docsLink" classicon="i-carbon:document">
                 {{ $t('package.links.docs') }}
               </LinkBase>
             </li>
@@ -793,8 +796,8 @@ onKeyStroke(
               <LinkBase
                 variant="button-secondary"
                 :to="`/package-code/${pkg.name}/v/${resolvedVersion}`"
+                classicon="i-carbon:code"
               >
-                <span class="i-carbon:code w-4 h-4" aria-hidden="true" />
                 {{ $t('package.links.code') }}
               </LinkBase>
             </li>
@@ -802,8 +805,8 @@ onKeyStroke(
               <LinkBase
                 variant="button-secondary"
                 :to="{ path: '/compare', query: { packages: pkg.name } }"
+                classicon="i-carbon:compare"
               >
-                <span class="i-carbon:compare w-4 h-4" aria-hidden="true" />
                 {{ $t('package.links.compare') }}
               </LinkBase>
             </li>
@@ -883,8 +886,8 @@ onKeyStroke(
                   target="_blank"
                   rel="noopener noreferrer"
                   :title="$t('package.stats.view_dependency_graph')"
+                  classicon="i-carbon:network-3"
                 >
-                  <span class="i-carbon:network-3 w-3.5 h-3.5" aria-hidden="true" />
                   <span class="sr-only">{{ $t('package.stats.view_dependency_graph') }}</span>
                 </LinkBase>
 
@@ -895,8 +898,8 @@ onKeyStroke(
                   target="_blank"
                   rel="noopener noreferrer"
                   :title="$t('package.stats.inspect_dependency_tree')"
+                  classicon="i-carbon:tree-view"
                 >
-                  <span class="i-lucide-view w-3.5 h-3.5" aria-hidden="true" />
                   <span class="sr-only">{{ $t('package.stats.inspect_dependency_tree') }}</span>
                 </LinkBase>
               </div>

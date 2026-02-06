@@ -10,6 +10,8 @@ const props = withDefaults(
      * Don't use this directly, use `keyshortcut` instead. Correcty HTML will be automatically generated and the shortcut will automatically be displayed in the UI.
      */
     'aria-keyshortcuts'?: never
+
+    'classicon'?: string
   }>(),
   {
     type: 'button',
@@ -39,6 +41,11 @@ defineExpose({
     :disabled="disabled ? true : undefined"
     :aria-keyshortcuts="keyshortcut"
   >
+    <span
+      v-if="classicon"
+      :class="[variant === 'tag' ? 'size-3' : 'size-4', classicon]"
+      aria-hidden="true"
+    />
     <slot />
     <kbd
       v-if="keyshortcut"

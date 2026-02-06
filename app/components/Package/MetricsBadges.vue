@@ -58,22 +58,21 @@ const typesHref = computed(() => {
     <!-- TypeScript types badge -->
     <li v-if="!props.isBinary" class="contents">
       <TooltipApp :text="typesTooltip">
-        <LinkBase v-if="typesHref" variant="tag" :to="typesHref">
-          <span class="w-3 h-3 i-carbon-checkmark" aria-hidden="true" />
+        <LinkBase v-if="typesHref" variant="tag" :to="typesHref" classicon="i-carbon-checkmark">
           {{ $t('package.metrics.types_label') }}
         </LinkBase>
-        <TagStatic v-else :variant="hasTypes ? 'default' : 'disabled'" :tabindex="0">
-          <span
-            v-if="isLoading"
-            class="i-carbon-circle-dash w-3 h-3 motion-safe:animate-spin"
-            aria-hidden="true"
-          />
-          <span
-            v-else
-            class="w-3 h-3"
-            :class="hasTypes ? 'i-carbon-checkmark' : 'i-carbon-close'"
-            aria-hidden="true"
-          />
+        <TagStatic
+          v-else
+          :variant="hasTypes && !isLoading ? 'default' : 'disabled'"
+          :tabindex="0"
+          :classicon="
+            isLoading
+              ? 'i-carbon-circle-dash motion-safe:animate-spin'
+              : hasTypes
+                ? 'i-carbon-checkmark'
+                : 'i-carbon-close'
+          "
+        >
           {{ $t('package.metrics.types_label') }}
         </TagStatic>
       </TooltipApp>
@@ -84,18 +83,17 @@ const typesHref = computed(() => {
       <TooltipApp
         :text="isLoading ? '' : hasEsm ? $t('package.metrics.esm') : $t('package.metrics.no_esm')"
       >
-        <TagStatic tabindex="0" :variant="hasEsm && !isLoading ? 'default' : 'disabled'">
-          <span
-            v-if="isLoading"
-            class="i-carbon-circle-dash w-3 h-3 motion-safe:animate-spin"
-            aria-hidden="true"
-          />
-          <span
-            v-else
-            class="w-3 h-3"
-            :class="hasEsm ? 'i-carbon-checkmark' : 'i-carbon-close'"
-            aria-hidden="true"
-          />
+        <TagStatic
+          tabindex="0"
+          :variant="hasEsm && !isLoading ? 'default' : 'disabled'"
+          :classicon="
+            isLoading
+              ? 'i-carbon-circle-dash motion-safe:animate-spin'
+              : hasEsm
+                ? 'i-carbon-checkmark'
+                : 'i-carbon-close'
+          "
+        >
           ESM
         </TagStatic>
       </TooltipApp>
@@ -104,13 +102,13 @@ const typesHref = computed(() => {
     <!-- CJS badge -->
     <li v-if="isLoading || hasCjs" class="contents">
       <TooltipApp :text="isLoading ? '' : $t('package.metrics.cjs')">
-        <TagStatic tabindex="0" :variant="isLoading ? 'disabled' : 'default'">
-          <span
-            v-if="isLoading"
-            class="i-carbon-circle-dash w-3 h-3 motion-safe:animate-spin"
-            aria-hidden="true"
-          />
-          <span v-else class="i-carbon-checkmark w-3 h-3" aria-hidden="true" />
+        <TagStatic
+          tabindex="0"
+          :variant="isLoading ? 'disabled' : 'default'"
+          :classicon="
+            isLoading ? 'i-carbon-circle-dash motion-safe:animate-spin' : 'i-carbon-checkmark'
+          "
+        >
           CJS
         </TagStatic>
       </TooltipApp>

@@ -96,9 +96,12 @@ defineOgImageComponent('Default', {
                   @input="handleInput"
                 />
 
-                <ButtonBase type="submit" variant="primary" class="absolute inset-ie-2">
-                  <span class="i-carbon:search align-middle w-4 h-4" aria-hidden="true"></span>
-
+                <ButtonBase
+                  type="submit"
+                  variant="primary"
+                  class="absolute inset-ie-2"
+                  classicon="i-carbon:search"
+                >
                   <span class="sr-only sm:not-sr-only">
                     {{ $t('search.button') }}
                   </span>

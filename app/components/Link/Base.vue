@@ -20,6 +20,8 @@ const props = withDefaults(
        * Don't use this directly, use `keyshortcut` instead. Correcty HTML will be automatically generated and the shortcut will automatically be displayed in the UI.
        */
       'aria-keyshortcuts'?: never
+
+      'classicon'?: string
     } &
       /** This makes sure the link always has either `to` or `href` */
       (Required<Pick<NuxtLinkProps, 'to'>> | Required<Pick<NuxtLinkProps, 'href'>>) &
@@ -61,6 +63,11 @@ const props = withDefaults(
     :href="href"
     :aria-keyshortcuts="keyshortcut"
   >
+    <span
+      v-if="classicon"
+      :class="[variant === 'tag' ? 'size-3' : 'size-4', classicon]"
+      aria-hidden="true"
+    />
     <slot />
     <kbd
       v-if="keyshortcut"
