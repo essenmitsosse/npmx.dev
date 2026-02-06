@@ -1061,7 +1061,7 @@ onKeyStroke(
               {{ $t('package.readme.title') }}
             </LinkBase>
           </h2>
-           <ClientOnly>
+          <ClientOnly>
             <div class="flex items-center gap-2">
               <!-- Copy readme as Markdown button -->
               <TooltipApp
