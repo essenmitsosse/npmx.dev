@@ -35,7 +35,7 @@ defineExpose({
     :class="{
       'text-sm px-4 py-2': size === 'medium',
       'text-xs px-2 py-0.5': size === 'small',
-      'from-fg/10 via-transparent to-transparent text-fg hover:enabled:(bg-accent/20 border-accent) focus-visible:enabled:(bg-accent/20 border-accent)':
+      'from-fg/10 via-transparent to-transparent text-fg hover:enabled:(bg-accent/20) focus-visible:enabled:(bg-accent/20)':
         variant === 'secondary',
       'text-black from-accent via-accent to-accent/30 hover:enabled:(bg-accent/50) focus-visible:enabled:(bg-accent/50)':
         variant === 'primary',
