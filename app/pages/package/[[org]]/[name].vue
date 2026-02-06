@@ -918,10 +918,9 @@ onKeyStroke(
           <!-- Vulnerabilities count -->
           <ClientOnly>
             <div class="space-y-1 sm:col-span-2">
-              <dt
-                class="text-xs text-fg-subtle uppercase tracking-wider"
-                v-html="$t('package.stats.vulns')"
-              ></dt>
+              <dt class="text-xs text-fg-subtle uppercase tracking-wider">
+                {{ $t('package.stats.vulns') }}
+              </dt>
               <dd class="font-mono text-sm text-fg">
                 <span
                   v-if="vulnTreeStatus === 'pending' || vulnTreeStatus === 'idle'"
@@ -944,10 +943,9 @@ onKeyStroke(
             </div>
             <template #fallback>
               <div class="space-y-1 sm:col-span-2">
-                <dt
-                  class="text-xs text-fg-subtle uppercase tracking-wider"
-                  v-html="$t('package.stats.vulns')"
-                ></dt>
+                <dt class="text-xs text-fg-subtle uppercase tracking-wider">
+                  {{ $t('package.stats.vulns') }}
+                </dt>
                 <dd class="font-mono text-sm text-fg-subtle">-</dd>
               </div>
             </template>
