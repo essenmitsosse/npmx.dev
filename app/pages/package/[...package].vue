@@ -818,35 +818,38 @@ onKeyStroke(
             <dt class="text-xs text-fg-subtle uppercase tracking-wider">
               {{ $t('package.stats.deps') }}
             </dt>
-            <dd class="font-mono text-sm text-fg flex items-center justify-start gap-2">
-              <!-- Direct deps (muted) -->
-              <span class="text-fg-muted">{{ getDependencyCount(displayVersion) }}</span>
+            <dd class="font-mono text-sm text-fg">
+              <span class="flex items-center justify-start gap-2">
+                <!-- Direct deps (muted) -->
+                <span class="text-fg-muted">{{ getDependencyCount(displayVersion) }}</span>
 
-              <!-- Separator and total transitive deps -->
-              <template v-if="getDependencyCount(displayVersion) !== totalDepsCount">
-                <span class="text-fg-subtle mx-1">/</span>
+                <!-- Separator and total transitive deps -->
+                <template v-if="getDependencyCount(displayVersion) !== totalDepsCount">
+                  <span class="text-fg-subtle mx-1">/</span>
 
-                <ClientOnly>
-                  <span
-                    v-if="
-                      vulnTreeStatus === 'pending' || (installSizeStatus === 'pending' && !vulnTree)
-                    "
-                    class="inline-flex items-center gap-1 text-fg-subtle"
-                  >
+                  <ClientOnly>
                     <span
-                      class="i-carbon:circle-dash w-3 h-3 motion-safe:animate-spin"
-                      aria-hidden="true"
-                    />
-                  </span>
-                  <span v-else-if="totalDepsCount !== null">{{ totalDepsCount }}</span>
-                  <span v-else class="text-fg-subtle">-</span>
-                  <template #fallback>
-                    <span class="text-fg-subtle">-</span>
-                  </template>
-                </ClientOnly>
-              </template>
+                      v-if="
+                        vulnTreeStatus === 'pending' ||
+                        (installSizeStatus === 'pending' && !vulnTree)
+                      "
+                      class="inline-flex items-center gap-1 text-fg-subtle"
+                    >
+                      <span
+                        class="i-carbon:circle-dash w-3 h-3 motion-safe:animate-spin"
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span v-else-if="totalDepsCount !== null">{{ totalDepsCount }}</span>
+                    <span v-else class="text-fg-subtle">-</span>
+                    <template #fallback>
+                      <span class="text-fg-subtle">-</span>
+                    </template>
+                  </ClientOnly>
+                </template>
+              </span>
 
-              <div class="flex items-center gap-1">
+              <span class="flex items-center gap-1">
                 <LinkBase
                   variant="tag"
                   v-if="getDependencyCount(displayVersion) > 0"
@@ -866,7 +869,7 @@ onKeyStroke(
                 >
                   <span class="sr-only">{{ $t('package.stats.inspect_dependency_tree') }}</span>
                 </LinkBase>
-              </div>
+              </span>
             </dd>
           </div>
 
