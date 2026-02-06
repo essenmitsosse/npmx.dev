@@ -150,7 +150,7 @@ jobs:
         run: pnpm install
 
       - name: 🏗️ Build project
-        run: NODE_ENV=test pnpm build
+        run: pnpm build:playwright
 
       - name: 🖥️ Test project (browser)
         run: pnpm test:browser:prebuilt
@@ -178,7 +178,7 @@ jobs:
         run: pnpm install
 
       - name: 🏗️ Build project
-        run: NODE_ENV=test pnpm build
+        run: pnpm build:playwright
 
       - name: ♿ Accessibility audit (Lighthouse - ${{ matrix.mode }} mode)
         run: ./scripts/lighthouse-a11y.sh

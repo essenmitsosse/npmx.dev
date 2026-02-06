@@ -11,6 +11,7 @@
   },
   "scripts": {
     "build": "nuxt build",
+    "build:playwright": "NODE_ENV=test pnpm build",
     "build:lunaria": "node ./lunaria/lunaria.ts",
     "dev": "nuxt dev",
     "dev:docs": "pnpm run --filter npmx-docs dev --port=3001",
