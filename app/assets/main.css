@@ -181,7 +181,7 @@ body {
   line-height: 1.6;
 }
 
-*:focus-visible,
+:focus-visible,
 :-moz-focusring {
   /* weird Firefox behavior makes it necessary to add `!important` 
   or otherwise the selector would need to be more specific,
