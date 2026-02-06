@@ -8,8 +8,6 @@ const props = withDefaults(
       'disabled'?: boolean
       /**
        * `type` should never be used, because this will always be a link.
-       *
-       * If you want a button use `TagButton` instead.
        * */
       'type'?: never
       'variant'?: 'button-primary' | 'button-secondary' | 'tag' | 'link'
