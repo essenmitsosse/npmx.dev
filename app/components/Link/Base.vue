@@ -32,10 +32,10 @@ const props = withDefaults(
       'rel'?: never
 
       'classicon'?: string
-    } &
-      /** This makes sure the link always has either `to` or `href` */
-      (Required<Pick<NuxtLinkProps, 'to'>> | Required<Pick<NuxtLinkProps, 'href'>>) &
-      NuxtLinkProps
+
+      'to'?: NuxtLinkProps['to']
+      'href'?: NuxtLinkProps['href']
+    } & NuxtLinkProps
   >(),
   { variant: 'link' },
 )
