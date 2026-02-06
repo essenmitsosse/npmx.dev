@@ -173,7 +173,7 @@ onKeyStroke(
           :aria-label="$t('nav.open_menu')"
           :aria-expanded="showMobileMenu"
           @click="showMobileMenu = !showMobileMenu"
-          iconclass="i-carbon:menu"
+          classicon="i-carbon:menu"
         />
       </div>
     </nav>

@@ -103,7 +103,7 @@ const sortedOptionalDependencies = computed(() => {
               class="shrink-0"
               :class="SEVERITY_TEXT_COLORS[getHighestSeverity(getVulnerableDepInfo(dep)!.counts)]"
               :title="`${getVulnerableDepInfo(dep)!.counts.total} vulnerabilities`"
-              iconclass="i-carbon:security"
+              classicon="i-carbon:security"
             >
               <span class="sr-only">{{ $t('package.dependencies.view_vulnerabilities') }}</span>
             </LinkBase>
@@ -115,7 +115,7 @@ const sortedOptionalDependencies = computed(() => {
               }"
               class="shrink-0 text-purple-500"
               :title="getDeprecatedDepInfo(dep)!.message"
-              iconclass="i-carbon:warning-hex"
+              classicon="i-carbon:warning-hex"
             >
               <span class="sr-only">{{ $t('package.deprecated.label') }}</span>
             </LinkBase>

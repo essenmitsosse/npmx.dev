@@ -266,7 +266,7 @@ watch(
           <ButtonBase
             :aria-label="$t('package.maintainers.cancel_add')"
             @click="showAddOwner = false"
-            iconclass="i-carbon-close"
+            classicon="i-carbon-close"
           />
         </form>
       </div>
