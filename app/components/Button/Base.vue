@@ -19,7 +19,7 @@ const props = withDefaults(
   },
 )
 
-const el = ref<HTMLButtonElement | null>(null)
+const el = useTemplateRef('el')
 
 defineExpose({
   focus: () => el.value?.focus(),
