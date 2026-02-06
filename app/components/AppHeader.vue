@@ -66,7 +66,7 @@ onKeyStroke(
   e => isKeyWithoutModifiers(e, ',') && !isEditableElement(e.target),
   e => {
     e.preventDefault()
-    navigateTo('/settings')
+    navigateTo({ name: 'settings' })
   },
   { dedupe: true },
 )
@@ -79,7 +79,7 @@ onKeyStroke(
     !e.defaultPrevented,
   e => {
     e.preventDefault()
-    navigateTo('/compare')
+    navigateTo({ name: 'compare' })
   },
   { dedupe: true },
 )
@@ -107,7 +107,7 @@ onKeyStroke(
       <!-- Desktop: Logo (navigates home) -->
       <div v-if="showLogo" class="hidden sm:flex flex-shrink-0 items-center">
         <NuxtLink
-          to="/"
+          :to="{ name: 'index' }"
           :aria-label="$t('header.home')"
           dir="ltr"
           class="inline-flex items-center gap-1 header-logo font-mono text-lg font-medium text-fg hover:text-fg/90 transition-colors duration-200 rounded"
@@ -152,12 +152,12 @@ onKeyStroke(
       <!-- End: Desktop nav items + Mobile menu button -->
       <ButtonGroup as="div" class="hidden sm:flex flex-shrink-0">
         <!-- Desktop: Compare link -->
-        <LinkBase variant="button-secondary" to="/compare" keyshortcut="c">
+        <LinkBase variant="button-secondary" :to="{ name: 'compare' }" keyshortcut="c">
           {{ $t('nav.compare') }}
         </LinkBase>
 
         <!-- Desktop: Settings link -->
-        <LinkBase variant="button-secondary" to="/settings" keyshortcut=",">
+        <LinkBase variant="button-secondary" :to="{ name: 'settings' }" keyshortcut=",">
           {{ $t('nav.settings') }}
         </LinkBase>
 

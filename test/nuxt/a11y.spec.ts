@@ -875,6 +875,7 @@ describe('component accessibility audits', () => {
           tree: mockTree,
           currentPath: '',
           baseUrl: '/package-code/vue',
+          basePath: ['vue', 'v', '3.0.0'],
         },
       })
       const results = await runAxe(component)
@@ -887,6 +888,7 @@ describe('component accessibility audits', () => {
           tree: mockTree,
           currentPath: 'src',
           baseUrl: '/package-code/vue',
+          basePath: ['vue', 'v', '3.0.0'],
         },
       })
       const results = await runAxe(component)
@@ -911,6 +913,7 @@ describe('component accessibility audits', () => {
           tree: mockTree,
           currentPath: '',
           baseUrl: '/package-code/vue',
+          basePath: ['vue', 'v', '3.0.0'],
         },
       })
       const results = await runAxe(component)
@@ -923,6 +926,7 @@ describe('component accessibility audits', () => {
           tree: mockTree,
           currentPath: 'src/index.ts',
           baseUrl: '/package-code/vue',
+          basePath: ['vue', 'v', '3.0.0'],
         },
       })
       const results = await runAxe(component)
@@ -1172,6 +1176,7 @@ describe('component accessibility audits', () => {
           tree: mockTree,
           currentPath: '',
           baseUrl: '/package-code/vue',
+          basePath: ['vue', 'v', '3.0.0'],
         },
       })
       const results = await runAxe(component)

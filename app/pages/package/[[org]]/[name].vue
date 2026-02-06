@@ -18,11 +18,6 @@ import { useAtproto } from '~/composables/atproto/useAtproto'
 import { togglePackageLike } from '~/utils/atproto/likes'
 import { LinkBase } from '#components'
 
-definePageMeta({
-  name: 'package',
-  alias: ['/:package(.*)*'],
-})
-
 defineOgImageComponent('Package', {
   name: () => packageName.value,
   version: () => requestedVersion.value ?? '',
@@ -318,7 +313,12 @@ const homepageUrl = computed(() => {
 const docsLink = computed(() => {
   if (!resolvedVersion.value) return null
 
-  return `/package-docs/${pkg.value!.name}/v/${resolvedVersion.value}`
+  return {
+    name: 'docs' as const,
+    params: {
+      path: [pkg.value!.name, 'v', resolvedVersion.value] satisfies [string, string, string],
+    },
+  }
 })
 
 const fundingUrl = computed(() => {
@@ -493,7 +493,7 @@ onKeyStroke(
   e => {
     if (!pkg.value) return
     e.preventDefault()
-    router.push({ path: '/compare', query: { packages: pkg.value.name } })
+    router.push({ name: 'compare', query: { packages: pkg.value.name } })
   },
 )
 </script>
@@ -555,7 +555,7 @@ onKeyStroke(
 
             <LinkBase
               v-if="requestedVersion && resolvedVersion !== requestedVersion"
-              :to="`/package/${pkg.name}/v/${resolvedVersion}`"
+              :to="packageRoute(pkg.name, resolvedVersion)"
               :title="$t('package.view_permalink')"
               >{{ resolvedVersion }}</LinkBase
             >
@@ -660,7 +660,7 @@ onKeyStroke(
             </LinkBase>
             <LinkBase
               variant="button-secondary"
-              :to="`/package-code/${pkg.name}/v/${resolvedVersion}`"
+              :to="{ name: 'code', params: { path: [pkg.name, 'v', resolvedVersion] } }"
               keyshortcut="."
               classicon="i-carbon:code"
             >
@@ -668,7 +668,7 @@ onKeyStroke(
             </LinkBase>
             <LinkBase
               variant="button-secondary"
-              :to="{ path: '/compare', query: { packages: pkg.name } }"
+              :to="{ name: 'compare', query: { packages: pkg.name } }"
               keyshortcut="c"
               classicon="i-carbon:compare"
             >
@@ -763,7 +763,7 @@ onKeyStroke(
             <li v-if="resolvedVersion" class="sm:hidden">
               <LinkBase
                 variant="button-secondary"
-                :to="`/package-code/${pkg.name}/v/${resolvedVersion}`"
+                :to="{ name: 'code', params: { path: [pkg.name, 'v', resolvedVersion] } }"
                 classicon="i-carbon:code"
               >
                 {{ $t('package.links.code') }}
@@ -772,7 +772,7 @@ onKeyStroke(
             <li class="sm:hidden">
               <LinkBase
                 variant="button-secondary"
-                :to="{ path: '/compare', query: { packages: pkg.name } }"
+                :to="{ name: 'compare', query: { packages: pkg.name } }"
                 classicon="i-carbon:compare"
               >
                 {{ $t('package.links.compare') }}
@@ -1189,7 +1189,7 @@ onKeyStroke(
       <p class="text-fg-muted mb-8">
         {{ error?.message ?? $t('package.not_found_message') }}
       </p>
-      <LinkBase variant="button-secondary" to="/">{{ $t('common.go_back_home') }}</LinkBase>
+      <LinkBase variant="button-secondary" :to="{ name: 'index' }">{{ $t('common.go_back_home') }}</LinkBase>
     </div>
   </main>
 </template>

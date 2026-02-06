@@ -81,7 +81,7 @@ const sortedOptionalDependencies = computed(() => {
           :key="dep"
           class="flex items-center justify-between py-1 text-sm gap-2"
         >
-          <LinkBase :to="{ name: 'package', params: { package: dep.split('/') } }">
+          <LinkBase :to="packageRoute(dep)">
             {{ dep }}
           </LinkBase>
           <span class="flex items-center gap-1 max-w-[40%]">
@@ -96,10 +96,7 @@ const sortedOptionalDependencies = computed(() => {
             </span>
             <LinkBase
               v-if="getVulnerableDepInfo(dep)"
-              :to="{
-                name: 'package',
-                params: { package: [...dep.split('/'), 'v', getVulnerableDepInfo(dep)!.version] },
-              }"
+              :to="packageRoute(dep, getVulnerableDepInfo(dep)!.version)"
               class="shrink-0"
               :class="SEVERITY_TEXT_COLORS[getHighestSeverity(getVulnerableDepInfo(dep)!.counts)]"
               :title="`${getVulnerableDepInfo(dep)!.counts.total} vulnerabilities`"
@@ -109,10 +106,7 @@ const sortedOptionalDependencies = computed(() => {
             </LinkBase>
             <LinkBase
               v-if="getDeprecatedDepInfo(dep)"
-              :to="{
-                name: 'package',
-                params: { package: [...dep.split('/'), 'v', getDeprecatedDepInfo(dep)!.version] },
-              }"
+              :to="packageRoute(dep, getDeprecatedDepInfo(dep)!.version)"
               class="shrink-0 text-purple-500"
               :title="getDeprecatedDepInfo(dep)!.message"
               classicon="i-carbon:warning-hex"
@@ -120,10 +114,7 @@ const sortedOptionalDependencies = computed(() => {
               <span class="sr-only">{{ $t('package.deprecated.label') }}</span>
             </LinkBase>
             <LinkBase
-              :to="{
-                name: 'package',
-                params: { package: [...dep.split('/'), 'v', version] },
-              }"
+              :to="packageRoute(dep, version)"
               class="truncate"
               :class="getVersionClass(outdatedDeps[dep])"
               :title="outdatedDeps[dep] ? getOutdatedTooltip(outdatedDeps[dep], $t) : version"
@@ -171,10 +162,7 @@ const sortedOptionalDependencies = computed(() => {
         >
           <div class="flex items-center gap-1 min-w-0 flex-1">
             <LinkBase
-              :to="{
-                name: 'package',
-                params: { package: peer.name.split('/') },
-              }"
+              :to="packageRoute(peer.name)"
               class="truncate"
             >
               {{ peer.name }}
@@ -184,10 +172,7 @@ const sortedOptionalDependencies = computed(() => {
             </TagStatic>
           </div>
           <LinkBase
-            :to="{
-              name: 'package',
-              params: { package: [...peer.name.split('/'), 'v', peer.version] },
-            }"
+            :to="packageRoute(peer.name, peer.version)"
             class="truncate"
             :title="peer.version"
           >
@@ -231,14 +216,11 @@ const sortedOptionalDependencies = computed(() => {
           :key="dep"
           class="flex items-center justify-between py-1 text-sm gap-2"
         >
-          <LinkBase :to="{ name: 'package', params: { package: dep.split('/') } }" class="truncate">
+          <LinkBase :to="packageRoute(dep)" class="truncate">
             {{ dep }}
           </LinkBase>
           <LinkBase
-            :to="{
-              name: 'package',
-              params: { package: [...dep.split('/'), 'v', version] },
-            }"
+            :to="packageRoute(dep, version)"
             class="truncate"
             :title="version"
           >
