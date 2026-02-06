@@ -37,7 +37,7 @@ defineExpose({
       'text-xs px-2 py-0.5': size === 'small',
       'bg-transparent text-fg hover:enabled:(bg-fg/30) focus-visible:enabled:(bg-fg/30)':
         variant === 'secondary',
-      'text-black bg-fg hover:enabled:(bg-fg/50) focus-visible:enabled:(bg-fg/50)':
+      'text-bg bg-fg hover:enabled:(bg-fg/50) focus-visible:enabled:(bg-fg/50)':
         variant === 'primary',
     }"
     :type="props.type"

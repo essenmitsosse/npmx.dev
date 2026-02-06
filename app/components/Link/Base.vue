@@ -83,7 +83,7 @@ const isButtonMedium = computed(() => props.size === 'medium' && props.variant !
       'text-xs px-2 py-0.5': isButtonSmall,
       'bg-transparent text-fg hover:(bg-fg/30) focus-visible:(bg-fg/30)':
         variant === 'button-secondary',
-      'text-black bg-fg hover:(bg-fg/50) focus-visible:(bg-fg/50)': variant === 'button-primary',
+      'text-bg bg-fg hover:(bg-fg/50) focus-visible:(bg-fg/50)': variant === 'button-primary',
     }"
     :to="to"
     :href="to"
