@@ -17,6 +17,7 @@ import { useModal } from '~/composables/useModal'
 import { useAtproto } from '~/composables/atproto/useAtproto'
 import { togglePackageLike } from '~/utils/atproto/likes'
 import { LinkBase } from '#components'
+import { isTemplateExpression } from 'typescript'
 
 defineOgImageComponent('Package', {
   name: () => packageName.value,
@@ -810,14 +811,14 @@ onKeyStroke(
             <dt class="text-xs text-fg-subtle uppercase tracking-wider">
               {{ $t('package.stats.deps') }}
             </dt>
-            <dd class="font-mono text-sm text-fg">
-              <span class="flex items-center justify-start gap-2">
+            <dd class="font-mono text-sm text-fg flex items-center justify-start gap-2">
+              <span class="flex items-center gap-1">
                 <!-- Direct deps (muted) -->
                 <span class="text-fg-muted">{{ getDependencyCount(displayVersion) }}</span>
 
                 <!-- Separator and total transitive deps -->
                 <template v-if="getDependencyCount(displayVersion) !== totalDepsCount">
-                  <span class="text-fg-subtle mx-1">/</span>
+                  <span class="text-fg-subtle">/</span>
 
                   <ClientOnly>
                     <span
@@ -840,8 +841,7 @@ onKeyStroke(
                   </ClientOnly>
                 </template>
               </span>
-
-              <span class="flex items-center gap-1">
+              <ButtonGroup>
                 <LinkBase
                   variant="button-secondary"
                   size="small"
@@ -863,7 +863,7 @@ onKeyStroke(
                 >
                   <span class="sr-only">{{ $t('package.stats.inspect_dependency_tree') }}</span>
                 </LinkBase>
-              </span>
+              </ButtonGroup>
             </dd>
           </div>
 
