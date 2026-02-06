@@ -39,6 +39,17 @@ const props = withDefaults(
   >(),
   { variant: 'link' },
 )
+
+const isLinkExternal = computed(
+  () =>
+    !!props.href &&
+    typeof props.href === 'string' &&
+    !props.href.startsWith('/') &&
+    !props.href.startsWith('#'),
+)
+const isLinkAnchor = computed(
+  () => !!props.href && typeof props.href === 'string' && props.href.startsWith('#'),
+)
 </script>
 
 <template>
@@ -59,7 +70,9 @@ const props = withDefaults(
     v-else
     class="group inline-flex gap-x-1 items-center justify-center"
     :class="{
-      'text-fg underline-offset-[0.2rem] underline decoration-1 decoration-fg/50 hover:(no-underline text-accent) focus-visible:(no-underline text-accent) transition-colors duration-200':
+      'underline-offset-[0.2rem] underline decoration-1 decoration-fg/50':
+        !isLinkAnchor && variant === 'link',
+      'text-fg hover:(no-underline text-accent) focus-visible:(no-underline text-accent) transition-colors duration-200':
         variant === 'link',
       'font-mono border border-border rounded-md transition-all duration-200 aria-current:(bg-fg text-bg border-fg hover:(text-bg/50)) bg-gradient-to-t dark:bg-gradient-to-b':
         variant !== 'link',
@@ -73,8 +86,8 @@ const props = withDefaults(
     :to="to"
     :href="href"
     :aria-keyshortcuts="keyshortcut"
-    :target="href ? '_blank' : undefined"
-    :rel="href ? 'noopener noreferrer' : undefined"
+    :target="isLinkExternal ? '_blank' : undefined"
+    :rel="isLinkExternal ? 'noopener noreferrer' : undefined"
   >
     <span
       v-if="classicon"
@@ -83,7 +96,16 @@ const props = withDefaults(
     />
     <slot />
     <!-- automatically show icon indicating external link -->
-    <span v-if="href" class="i-carbon:launch rtl-flip w-3 h-3 opacity-50" aria-hidden="true" />
+    <span
+      v-if="isLinkExternal"
+      class="i-carbon:launch rtl-flip w-3 h-3 opacity-50"
+      aria-hidden="true"
+    />
+    <span
+      v-else-if="isLinkAnchor && variant === 'link'"
+      class="i-carbon:link w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+      aria-hidden="true"
+    />
     <kbd
       v-if="keyshortcut"
       class="inline-flex items-center justify-center w-4 h-4 text-xs text-fg bg-bg-muted border border-border rounded no-underline"

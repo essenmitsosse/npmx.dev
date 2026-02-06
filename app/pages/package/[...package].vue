@@ -1011,16 +1011,9 @@ onKeyStroke(
             id="get-started-heading"
             class="group text-xs text-fg-subtle uppercase tracking-wider"
           >
-            <a
-              href="#get-started"
-              class="inline-flex items-center gap-1.5 py-1 text-fg-subtle hover:text-fg-muted transition-colors duration-200 no-underline"
-            >
+            <LinkBase href="#get-started">
               {{ $t('package.get_started.title') }}
-              <span
-                class="i-carbon:link w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                aria-hidden="true"
-              />
-            </a>
+            </LinkBase>
           </h2>
           <!-- Package manager dropdown -->
           <PackageManagerSelect />
@@ -1064,16 +1057,9 @@ onKeyStroke(
       <section id="readme" class="area-readme min-w-0 scroll-mt-20">
         <div class="flex flex-wrap items-center justify-between mb-3 px-1">
           <h2 id="readme-heading" class="group text-xs text-fg-subtle uppercase tracking-wider">
-            <a
-              href="#readme"
-              class="inline-flex items-center gap-1.5 text-fg-subtle hover:text-fg-muted transition-colors duration-200 no-underline mt-1"
-            >
+            <LinkBase href="#readme">
               {{ $t('package.readme.title') }}
-              <span
-                class="i-carbon:link w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                aria-hidden="true"
-              />
-            </a>
+            </LinkBase>
           </h2>
           <ClientOnly>
             <ReadmeTocDropdown
