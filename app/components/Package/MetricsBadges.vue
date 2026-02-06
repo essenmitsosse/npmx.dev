@@ -63,7 +63,7 @@ const typesHref = computed(() => {
         </LinkBase>
         <TagStatic
           v-else
-          :variant="hasTypes && !isLoading ? 'default' : 'disabled'"
+          :variant="hasTypes && !isLoading ? 'default' : 'ghost'"
           :tabindex="0"
           :classicon="
             isLoading
@@ -85,7 +85,7 @@ const typesHref = computed(() => {
       >
         <TagStatic
           tabindex="0"
-          :variant="hasEsm && !isLoading ? 'default' : 'disabled'"
+          :variant="hasEsm && !isLoading ? 'default' : 'ghost'"
           :classicon="
             isLoading
               ? 'i-carbon-circle-dash motion-safe:animate-spin'
@@ -104,7 +104,7 @@ const typesHref = computed(() => {
       <TooltipApp :text="isLoading ? '' : $t('package.metrics.cjs')">
         <TagStatic
           tabindex="0"
-          :variant="isLoading ? 'disabled' : 'default'"
+          :variant="isLoading ? 'ghost' : 'default'"
           :classicon="
             isLoading ? 'i-carbon-circle-dash motion-safe:animate-spin' : 'i-carbon-checkmark'
           "
