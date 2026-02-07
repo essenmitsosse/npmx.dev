@@ -17,7 +17,6 @@ import { useModal } from '~/composables/useModal'
 import { useAtproto } from '~/composables/atproto/useAtproto'
 import { togglePackageLike } from '~/utils/atproto/likes'
 import { LinkBase } from '#components'
-import { isTemplateExpression } from 'typescript'
 
 defineOgImageComponent('Package', {
   name: () => packageName.value,
