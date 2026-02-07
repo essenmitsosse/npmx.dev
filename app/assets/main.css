@@ -190,7 +190,7 @@ body {
 :-moz-focusring {
   /* weird Firefox behavior makes it necessary to add `!important` 
   or otherwise the selector would need to be more specific,
-  which it explicitly should note be. */
+  which it explicitly should not be. */
   outline: 2px solid var(--accent) !important;
   outline-offset: 2px !important;
 }
