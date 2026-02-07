@@ -86,11 +86,8 @@ const isButtonMedium = computed(() => props.size === 'medium' && props.variant !
       'text-bg bg-fg hover:(bg-fg/50) focus-visible:(bg-fg/50)': variant === 'button-primary',
     }"
     :to="to"
-    :href="to"
-    :external="isLinkExternal"
     :aria-keyshortcuts="keyshortcut"
     :target="isLinkExternal ? '_blank' : undefined"
-    :rel="isLinkExternal ? 'noopener noreferrer' : undefined"
   >
     <span
       v-if="classicon"
