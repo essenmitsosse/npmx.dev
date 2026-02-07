@@ -1077,24 +1077,16 @@ onKeyStroke(
                 :text="$t('package.readme.copy_as_markdown')"
                 position="bottom"
               >
-                <button
-                  type="button"
+                <ButtonBase
                   @click="copyReadme()"
-                  class="px-2 py-1.5 font-mono text-xs rounded transition-colors duration-150 inline-flex items-center gap-1.5"
-                  :class="
-                    copiedReadme ? 'text-accent bg-accent/10' : 'text-fg-subtle bg-bg hover:text-fg'
-                  "
+                  :aria-pressed="copiedReadme"
                   :aria-label="
                     copiedReadme ? $t('common.copied') : $t('package.readme.copy_as_markdown')
                   "
+                  :classicon="copiedReadme ? 'i-carbon:checkmark' : 'i-simple-icons:markdown'"
                 >
-                  <span
-                    :class="copiedReadme ? 'i-carbon:checkmark' : 'i-simple-icons:markdown'"
-                    class="size-3"
-                    aria-hidden="true"
-                  />
                   {{ copiedReadme ? $t('common.copied') : $t('common.copy') }}
-                </button>
+                </ButtonBase>
               </TooltipApp>
               <ReadmeTocDropdown
                 v-if="readmeData?.toc && readmeData.toc.length > 1"
