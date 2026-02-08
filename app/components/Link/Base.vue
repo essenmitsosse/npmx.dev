@@ -5,37 +5,32 @@ const props = withDefaults(
   defineProps<
     {
       /** Disabled links will be displayed as plain text */
-      'disabled'?: boolean
+      disabled?: boolean
       /**
        * `type` should never be used, because this will always be a link.
        * */
-      'type'?: never
-      'variant'?: 'button-primary' | 'button-secondary' | 'link'
-      'size'?: 'small' | 'medium'
+      type?: never
+      variant?: 'button-primary' | 'button-secondary' | 'link'
+      size?: 'small' | 'medium'
 
-      'keyshortcut'?: string
-
-      /**
-       * Do not use this directly. Use keyshortcut instead; it generates the correct HTML and displays the shortcut in the UI.
-       */
-      'aria-keyshortcuts'?: never
+      ariaKeyshortcuts?: string
 
       /**
        * Don't use this directly. This will automatically be set to `_blank` for external links passed via `to`.
        */
-      'target'?: never
+      target?: never
 
       /**
        * Don't use this directly. This will automatically be set for external links passed via `to`.
        */
-      'rel'?: never
+      rel?: never
 
-      'classicon'?: string
+      classicon?: string
 
-      'to'?: NuxtLinkProps['to']
+      to?: NuxtLinkProps['to']
 
       /** always use `to` instead of `href` */
-      'href'?: never
+      href?: never
     } & NuxtLinkProps
   >(),
   { variant: 'link', size: 'medium' },
@@ -86,7 +81,7 @@ const isButtonMedium = computed(() => props.size === 'medium' && props.variant !
       'text-bg bg-fg hover:(bg-fg/50) focus-visible:(bg-fg/50)': variant === 'button-primary',
     }"
     :to="to"
-    :aria-keyshortcuts="keyshortcut"
+    :aria-keyshortcuts="ariaKeyshortcuts"
     :target="isLinkExternal ? '_blank' : undefined"
   >
     <span
@@ -107,11 +102,11 @@ const isButtonMedium = computed(() => props.size === 'medium' && props.variant !
       aria-hidden="true"
     />
     <kbd
-      v-if="keyshortcut"
+      v-if="ariaKeyshortcuts"
       class="ms-2 inline-flex items-center justify-center w-4 h-4 text-xs text-fg bg-bg-muted border border-border rounded no-underline"
       aria-hidden="true"
     >
-      {{ keyshortcut }}
+      {{ ariaKeyshortcuts }}
     </kbd>
   </NuxtLink>
 </template>

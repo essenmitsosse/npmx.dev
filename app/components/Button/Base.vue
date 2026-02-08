@@ -1,18 +1,13 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    'disabled'?: boolean
-    'type'?: 'button' | 'submit'
-    'variant'?: 'primary' | 'secondary'
-    'size'?: 'small' | 'medium'
-    'keyshortcut'?: string
+    disabled?: boolean
+    type?: 'button' | 'submit'
+    variant?: 'primary' | 'secondary'
+    size?: 'small' | 'medium'
+    ariaKeyshortcuts?: string
 
-    /**
-     * Do not use this directly. Use keyshortcut instead; it generates the correct HTML and displays the shortcut in the UI.
-     */
-    'aria-keyshortcuts'?: never
-
-    'classicon'?: string
+    classicon?: string
   }>(),
   {
     type: 'button',
@@ -51,7 +46,7 @@ defineExpose({
        */
       disabled ? true : undefined
     "
-    :aria-keyshortcuts="keyshortcut"
+    :aria-keyshortcuts="ariaKeyshortcuts"
   >
     <span
       v-if="classicon"
@@ -60,11 +55,11 @@ defineExpose({
     />
     <slot />
     <kbd
-      v-if="keyshortcut"
+      v-if="ariaKeyshortcuts"
       class="ms-2 inline-flex items-center justify-center w-4 h-4 text-xs text-fg bg-bg-muted border border-border rounded no-underline"
       aria-hidden="true"
     >
-      {{ keyshortcut }}
+      {{ ariaKeyshortcuts }}
     </kbd>
   </button>
 </template>

@@ -157,7 +157,7 @@ onKeyStroke(
           class="border-none"
           variant="button-secondary"
           :to="{ name: 'compare' }"
-          keyshortcut="c"
+          aria-keyshortcuts="c"
         >
           {{ $t('nav.compare') }}
         </LinkBase>
@@ -167,7 +167,7 @@ onKeyStroke(
           class="border-none"
           variant="button-secondary"
           :to="{ name: 'settings' }"
-          keyshortcut=","
+          aria-keyshortcuts=","
         >
           {{ $t('nav.settings') }}
         </LinkBase>

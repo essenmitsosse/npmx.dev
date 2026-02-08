@@ -616,7 +616,7 @@ onKeyStroke(
               variant="button-secondary"
               v-if="docsLink"
               :to="docsLink"
-              keyshortcut="d"
+              aria-keyshortcuts="d"
               classicon="i-carbon:document"
             >
               {{ $t('package.links.docs') }}
@@ -624,7 +624,7 @@ onKeyStroke(
             <LinkBase
               variant="button-secondary"
               :to="{ name: 'code', params: { path: [pkg.name, 'v', resolvedVersion] } }"
-              keyshortcut="."
+              aria-keyshortcuts="."
               classicon="i-carbon:code"
             >
               {{ $t('package.links.code') }}
@@ -632,7 +632,7 @@ onKeyStroke(
             <LinkBase
               variant="button-secondary"
               :to="{ name: 'compare', query: { packages: pkg.name } }"
-              keyshortcut="c"
+              aria-keyshortcuts="c"
               classicon="i-carbon:compare"
             >
               {{ $t('package.links.compare') }}
