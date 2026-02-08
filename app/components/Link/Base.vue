@@ -31,6 +31,9 @@ const props = withDefaults(
 
       /** always use `to` instead of `href` */
       href?: never
+
+      /** should only be used for links where the context makes it very clear they are clickable. Don't just use this, because you don't like underlines. */
+      noUnderline?: boolean
     } & NuxtLinkProps
   >(),
   { variant: 'link', size: 'medium' },
@@ -70,7 +73,8 @@ const isButtonMedium = computed(() => props.size === 'medium' && props.variant !
     v-else
     class="group inline-flex gap-x-1 items-center justify-center"
     :class="{
-      'underline-offset-[0.2rem] underline decoration-1 decoration-fg/30': !isLinkAnchor && isLink,
+      'underline-offset-[0.2rem] underline decoration-1 decoration-fg/30':
+        !isLinkAnchor && isLink && !noUnderline,
       'font-mono text-fg hover:(decoration-accent text-accent) focus-visible:(decoration-accent text-accent) transition-colors duration-200':
         isLink,
       'font-mono border border-border rounded-md transition-all duration-200': isButton,
