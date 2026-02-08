@@ -1147,7 +1147,7 @@ onKeyStroke(
           </ClientOnly>
 
           <!-- Download stats -->
-          <PackageWeeklyDownloadStats :packageName :createdIso="pkg?.time?.created ?? null" />
+          <LazyPackageWeeklyDownloadStats :packageName :createdIso="pkg?.time?.created ?? null" />
 
           <!-- Playground links -->
           <PackagePlaygrounds

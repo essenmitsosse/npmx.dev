@@ -246,7 +246,7 @@ useSeoMeta({
             {{ $t('compare.facets.trends.title') }}
           </h2>
 
-          <CompareLineChart :packages="packages.filter(p => p !== NO_DEPENDENCY_ID)" />
+          <LazyCompareLineChart :packages="packages.filter(p => p !== NO_DEPENDENCY_ID)" />
         </div>
 
         <div v-else class="text-center py-12" role="alert">
