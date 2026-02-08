@@ -89,7 +89,7 @@ const isButtonMedium = computed(() => props.size === 'medium' && props.variant !
     :aria-keyshortcuts="keyshortcut"
     :target="isLinkExternal ? '_blank' : undefined"
   >
-    <span v-if="classicon" class="me-1 size-[1em]" :class="classicon" aria-hidden="true" />
+    <span v-if="classicon" class="size-[1em]" :class="classicon" aria-hidden="true" />
     <slot />
     <!-- automatically show icon indicating external link -->
     <span
