@@ -56,7 +56,7 @@ const isLink = computed(() => props.variant === 'link' || props.variant === 'lin
 const isButton = computed(() => !isLink.value)
 const isButtonSmall = computed(() => props.size === 'small' && !isLink.value)
 const isButtonMedium = computed(() => props.size === 'medium' && !isLink.value)
-const isBlock = computed(() => isButton || props.variant === 'link-block')
+const isBlock = computed(() => isButton.value || props.variant === 'link-block')
 </script>
 
 <template>
@@ -83,7 +83,8 @@ const isBlock = computed(() => isButton || props.variant === 'link-block')
       'underline-offset-[0.2rem] underline decoration-1 decoration-fg/30': !isLinkAnchor && isLink,
       'justify-start font-mono text-fg hover:(decoration-accent text-accent) focus-visible:(decoration-accent text-accent) transition-colors duration-200':
         isLink,
-      'justify-center font-mono border border-border rounded-md transition-all duration-200': isButton,
+      'justify-center font-mono border border-border rounded-md transition-all duration-200':
+        isButton,
       'text-sm px-4 py-2': isButtonMedium,
       'text-xs px-2 py-0.5': isButtonSmall,
       'bg-transparent text-fg hover:(bg-fg/10) focus-visible:(bg-fg/10)':
