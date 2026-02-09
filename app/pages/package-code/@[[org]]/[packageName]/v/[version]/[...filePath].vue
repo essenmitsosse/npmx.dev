@@ -256,13 +256,7 @@ function copyPermalinkUrl() {
 }
 
 // Canonical URL for this code page
-const canonicalUrl = computed(() => {
-  let url = `https://npmx.dev/package-code/${packageName.value}/v/${version.value}`
-  if (filePath.value) {
-    url += `/${filePath.value}`
-  }
-  return url
-})
+const canonicalUrl = computed(() => `https://npmx.dev${getCurrentCodeUrl()}`)
 
 // Toggle markdown view mode
 const markdownViewModes = [
