@@ -378,7 +378,7 @@ function getTagVersions(tag: string): VersionDisplay[] {
                 <span
                   v-for="tag in row.tags"
                   :key="tag"
-                  class="text-4xs font-semibold text-fg-subtle uppercase tracking-wide truncate max-w-[150px]"
+                  class="text-4xs font-semibold text-fg-subtle uppercase tracking-wide truncate"
                   :title="tag"
                 >
                   {{ tag }}
