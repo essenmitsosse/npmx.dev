@@ -15,14 +15,13 @@ const props = defineProps<{
 function getCodeLink(filePath: string): RouteLocationRaw {
   const split = props.packageName.split('/')
 
-  console.log({ split })
   return {
     name: 'code',
     params: {
       org: split.length === 2 ? split[0] : null,
       packageName: split.length === 2 ? split[1]! : split[0]!,
       version: props.version,
-      filePath: '',
+      filePath: filePath,
     },
   }
 }
