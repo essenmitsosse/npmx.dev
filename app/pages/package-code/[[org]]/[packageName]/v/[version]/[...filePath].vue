@@ -56,7 +56,8 @@ const { data: pkg } = usePackage(packageName)
 // URL pattern for version selector - includes file path if present
 const versionUrlPattern = computed(() =>
   getCodeUrl({
-    packageName: packageName.value,
+    org: route.params.org,
+    packageName: route.params.packageName,
     version: '{version}',
     filePath: filePath.value,
   }),
