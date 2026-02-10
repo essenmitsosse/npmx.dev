@@ -3,6 +3,7 @@ defineProps<{
   html: string
 }>()
 
+const router = useRouter()
 const { copy } = useClipboard()
 
 // Combined click handler for:
@@ -36,6 +37,20 @@ function handleClick(event: MouseEvent) {
       icon.classList.remove(successIcon)
       icon.classList.add(originalIcon)
     }, 2000)
+    return
+  }
+
+  // Handle npmjs.com link clicks - route internally
+  const anchor = target.closest('a')
+  if (!anchor) return
+
+  const href = anchor.getAttribute('href')
+  if (!href) return
+
+  // Handle relative anchor links
+  if (href.startsWith('#') || href.startsWith('/')) {
+    event.preventDefault()
+    router.push(href)
     return
   }
 }
