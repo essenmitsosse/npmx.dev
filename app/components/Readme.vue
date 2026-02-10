@@ -3,7 +3,6 @@ defineProps<{
   html: string
 }>()
 
-const router = useRouter()
 const { copy } = useClipboard()
 
 // Combined click handler for:
