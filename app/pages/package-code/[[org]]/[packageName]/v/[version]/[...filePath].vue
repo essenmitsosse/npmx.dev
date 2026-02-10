@@ -201,7 +201,7 @@ const breadcrumbs = computed(() => {
 })
 
 // Navigation helper - build URL for a path
-function getCurrentCodeUrl(path?: string): string {
+function getCurrentCodeUrlWithPath(path?: string): string {
   return getCodeUrl({
     ...route.params,
     filePath: path,
@@ -249,7 +249,7 @@ function copyPermalinkUrl() {
 }
 
 // Canonical URL for this code page
-const canonicalUrl = computed(() => `https://npmx.dev${getCurrentCodeUrl()}`)
+const canonicalUrl = computed(() => `https://npmx.dev${getCurrentCodeUrlWithPath()}`)
 
 // Toggle markdown view mode
 const markdownViewModes = [
@@ -349,7 +349,7 @@ defineOgImageComponent('Default', {
         >
           <NuxtLink
             v-if="filePath"
-            :to="getCurrentCodeUrl()"
+            :to="getCurrentCodeUrlWithPath()"
             class="text-fg-muted hover:text-fg transition-colors shrink-0"
           >
             {{ $t('code.root') }}
@@ -359,7 +359,7 @@ defineOgImageComponent('Default', {
             <span class="text-fg-subtle">/</span>
             <NuxtLink
               v-if="i < breadcrumbs.length - 1"
-              :to="getCurrentCodeUrl(crumb.path)"
+              :to="getCurrentCodeUrlWithPath(crumb.path)"
               class="text-fg-muted hover:text-fg transition-colors"
             >
               {{ crumb.name }}
@@ -401,7 +401,7 @@ defineOgImageComponent('Default', {
         <CodeFileTree
           :tree="fileTree.tree"
           :current-path="filePath ?? ''"
-          :base-url="getCurrentCodeUrl()"
+          :base-url="getCurrentCodeUrlWithPath()"
           :base-route="route"
         />
       </aside>
@@ -557,7 +557,7 @@ defineOgImageComponent('Default', {
           <CodeDirectoryListing
             :tree="fileTree.tree"
             :current-path="filePath ?? ''"
-            :base-url="getCurrentCodeUrl()"
+            :base-url="getCurrentCodeUrlWithPath()"
             :base-route="route"
           />
         </template>
@@ -571,7 +571,7 @@ defineOgImageComponent('Default', {
           v-if="fileTree"
           :tree="fileTree.tree"
           :current-path="filePath ?? ''"
-          :base-url="getCurrentCodeUrl()"
+          :base-url="getCurrentCodeUrlWithPath()"
           :base-route="route"
         />
       </Teleport>
