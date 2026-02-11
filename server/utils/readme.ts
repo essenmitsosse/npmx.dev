@@ -411,31 +411,15 @@ ${html}
     return `<img src="${resolvedHref}"${altAttr}${titleAttr}>`
   }
 
-  // Resolve link URLs, add security attributes, and collect playground links
+  // // Resolve link URLs, add security attributes, and collect playground links
   renderer.link = function ({ href, title, tokens }: Tokens.Link) {
-    const resolvedHref = resolveUrl(href, packageName, repoInfo)
     const text = this.parser.parseInline(tokens)
     const titleAttr = title ? ` title="${title}"` : ''
+    const plainText = text.replace(/<[^>]*>/g, '').trim()
 
-    // Check if this is a playground link
-    const provider = matchPlaygroundProvider(resolvedHref)
-    if (provider && !seenUrls.has(resolvedHref)) {
-      seenUrls.add(resolvedHref)
+    const intermediateTitleAttr = `${` data-title-intermediate="${plainText || title}"`}`
 
-      // Extract label from link text (strip HTML tags for plain text)
-      const plainText = text.replace(/<[^>]*>/g, '').trim()
-
-      collectedLinks.push({
-        url: resolvedHref,
-        provider: provider.id,
-        providerName: provider.name,
-        label: plainText || title || provider.name,
-      })
-    }
-
-    const hrefValue = resolvedHref.startsWith('#') ? resolvedHref.toLowerCase() : resolvedHref
-
-    return `<a href="${hrefValue}"${titleAttr}>${text}</a>`
+    return `<a href="${href}"${titleAttr}${intermediateTitleAttr}>${text}</a>`
   }
 
   // GitHub-style callouts: > [!NOTE], > [!TIP], etc.
@@ -518,11 +502,35 @@ ${html}
         return { tagName, attribs }
       },
       a: (tagName, attribs) => {
+        if (!attribs.href) {
+          return { tagName, attribs }
+        }
+
+        const resolvedHref = resolveUrl(attribs.href, packageName, repoInfo)
+
+        const provider = matchPlaygroundProvider(resolvedHref)
+        if (provider && !seenUrls.has(resolvedHref)) {
+          seenUrls.add(resolvedHref)
+
+          collectedLinks.push({
+            url: resolvedHref,
+            provider: provider.id,
+            providerName: provider.name,
+            /**
+             * We need to set some data attribute before hand because `transformTags` doesn't
+             * provide the text of the element. This will automatically be removed, because there
+             * is an allow list for link attributes.
+             * */
+            label: attribs['data-title-intermediate'] || provider.name,
+          })
+        }
+
         // Add security attributes for external links
-        if (attribs.href && hasProtocol(attribs.href, { acceptRelative: true })) {
+        if (resolvedHref && hasProtocol(resolvedHref, { acceptRelative: true })) {
           attribs.rel = 'nofollow noreferrer noopener'
           attribs.target = '_blank'
         }
+        attribs.href = resolvedHref
         return { tagName, attribs }
       },
       div: prefixId,
