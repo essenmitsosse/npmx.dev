@@ -13,6 +13,7 @@ interface PlaygroundProvider {
   id: string // Provider identifier
   name: string
   domains: string[] // Associated domains
+  path?: string
   icon?: string // Provider icon name
 }
 
@@ -74,6 +75,13 @@ const PLAYGROUND_PROVIDERS: PlaygroundProvider[] = [
     domains: ['vite.new'],
     icon: 'vite',
   },
+  {
+    id: 'typescript-playground',
+    name: 'Typescript Playground',
+    domains: ['typescriptlang.org'],
+    path: '/play',
+    icon: 'typescript',
+  },
 ]
 
 /**
@@ -86,7 +94,10 @@ function matchPlaygroundProvider(url: string): PlaygroundProvider | null {
 
     for (const provider of PLAYGROUND_PROVIDERS) {
       for (const domain of provider.domains) {
-        if (hostname === domain || hostname.endsWith(`.${domain}`)) {
+        if (
+          (hostname === domain || hostname.endsWith(`.${domain}`)) &&
+          (!provider.path || parsed.pathname.startsWith(provider.path))
+        ) {
           return provider
         }
       }
@@ -406,10 +417,6 @@ ${html}
     const text = this.parser.parseInline(tokens)
     const titleAttr = title ? ` title="${title}"` : ''
 
-    const isExternal = resolvedHref.startsWith('http://') || resolvedHref.startsWith('https://')
-    const relAttr = isExternal ? ' rel="nofollow noreferrer noopener"' : ''
-    const targetAttr = isExternal ? ' target="_blank"' : ''
-
     // Check if this is a playground link
     const provider = matchPlaygroundProvider(resolvedHref)
     if (provider && !seenUrls.has(resolvedHref)) {
@@ -428,7 +435,7 @@ ${html}
 
     const hrefValue = resolvedHref.startsWith('#') ? resolvedHref.toLowerCase() : resolvedHref
 
-    return `<a href="${hrefValue}"${titleAttr}${relAttr}${targetAttr}>${text}</a>`
+    return `<a href="${hrefValue}"${titleAttr}>${text}</a>`
   }
 
   // GitHub-style callouts: > [!NOTE], > [!TIP], etc.
