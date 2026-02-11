@@ -221,16 +221,6 @@ const isNpmJsUrlThatCanBeRedirected = (url: URL) => {
   return true
 }
 
-const replaceHtmlLink = (html: string) => {
-  return html.replace(/href="([^"]+)"/g, (match, href) => {
-    if (isNpmJsUrlThatCanBeRedirected(new URL(href, 'https://www.npmjs.com'))) {
-      const newHref = href.replace(/^https?:\/\/(www\.)?npmjs\.com/, '')
-      return `href="${newHref}"`
-    }
-    return match
-  })
-}
-
 /**
  * Resolve a relative URL to an absolute URL.
  * If repository info is available, resolve to provider's raw file URLs.
@@ -437,14 +427,7 @@ ${html}
     return `<blockquote>${body}</blockquote>\n`
   }
 
-  marked.setOptions({
-    renderer,
-    walkTokens: token => {
-      if (token.type === 'html') {
-        token.text = replaceHtmlLink(token.text)
-      }
-    },
-  })
+  marked.setOptions({ renderer })
 
   const rawHtml = marked.parse(content) as string
 
