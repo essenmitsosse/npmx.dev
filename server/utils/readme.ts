@@ -377,7 +377,8 @@ export async function renderReadmeHtml(
       toc.push({ text: plainText, id, depth })
     }
 
-    return `<h${semanticLevel} id="${id}" data-level="${depth}">${text}</h${semanticLevel}>\n`
+    /** The link href uses the unique slug WITHOUT the 'user-content-' prefix, because that will later be added for all links. */
+    return `<h${semanticLevel} id="${id}" data-level="${depth}"><a href="#${uniqueSlug}">${text}</a></h${semanticLevel}>\n`
   }
 
   // Syntax highlighting for code blocks (uses shared highlighter)
