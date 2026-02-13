@@ -901,7 +901,7 @@ const showSkeleton = shallowRef(false)
               </LinkBase>
             </li>
             <li v-if="fundingUrl">
-              <LinkBase :to="fundingUrl" classicon="i-carbon:favorite">
+              <LinkBase :to="fundingUrl" classicon="i-lucide:heart">
                 {{ $t('package.links.fund') }}
               </LinkBase>
             </li>

@@ -112,7 +112,7 @@ const { data: post, status } = useAsyncData(
     <div class="flex items-center gap-4 text-sm text-fg-subtle">
       <DateTime :datetime="post.record.createdAt" date-style="medium" />
       <span v-if="post.likeCount" class="flex items-center gap-1">
-        <span class="i-carbon:favorite w-3.5 h-3.5" aria-hidden="true" />
+        <span class="i-lucide:heart w-3.5 h-3.5" aria-hidden="true" />
         {{ post.likeCount }}
       </span>
       <span v-if="post.repostCount" class="flex items-center gap-1">

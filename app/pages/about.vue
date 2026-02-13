@@ -207,7 +207,7 @@ const roleLabels = computed(
                     :to="person.sponsors_url"
                     no-underline
                     no-external-icon
-                    classicon="i-carbon:favorite"
+                    classicon="i-lucide:heart"
                     class="relative z-10 text-xs text-fg-muted hover:text-pink-400 mt-0.5"
                     :aria-label="$t('about.team.sponsor_aria', { name: person.login })"
                   >
