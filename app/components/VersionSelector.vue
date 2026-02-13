@@ -484,7 +484,7 @@ watch(
         latest
       </span>
       <span
-        class="i-carbon:chevron-down w-3.5 h-3.5 transition-[transform] duration-200 motion-reduce:transition-none"
+        class="i-lucide:chevron-down w-3.5 h-3.5 transition-[transform] duration-200 motion-reduce:transition-none"
         :class="{ 'rotate-180': isOpen }"
         aria-hidden="true"
       />
@@ -546,7 +546,7 @@ watch(
               <span
                 v-else
                 class="w-3 h-3 transition-transform duration-200 rtl-flip"
-                :class="group.isExpanded ? 'i-carbon:chevron-down' : 'i-carbon:chevron-right'"
+                :class="group.isExpanded ? 'i-lucide:chevron-down' : 'i-lucide:chevron-right'"
                 aria-hidden="true"
               />
             </button>

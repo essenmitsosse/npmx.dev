@@ -60,7 +60,7 @@ function getDepthStyle(depth: DependencyDepth) {
           </span>
         </span>
         <span
-          class="i-carbon:chevron-down w-4 h-4 transition-transform duration-200 shrink-0"
+          class="i-lucide:chevron-down w-4 h-4 transition-transform duration-200 shrink-0"
           :class="{ 'rotate-180': isExpanded }"
           aria-hidden="true"
         />

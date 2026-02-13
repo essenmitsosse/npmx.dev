@@ -99,7 +99,7 @@ const isExpanded = shallowRef(false)
         @click="isExpanded = !isExpanded"
       >
         <span
-          class="i-carbon:chevron-right rtl-flip w-3 h-3 transition-transform duration-200"
+          class="i-lucide:chevron-right rtl-flip w-3 h-3 transition-transform duration-200"
           :class="{ 'rotate-90': isExpanded }"
           aria-hidden="true"
         />

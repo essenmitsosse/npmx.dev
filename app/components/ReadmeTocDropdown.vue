@@ -156,7 +156,7 @@ function handleKeydown(event: KeyboardEvent) {
     block
   >
     <span
-      class="i-carbon:chevron-down w-3 h-3"
+      class="i-lucide:chevron-down w-3 h-3"
       :class="[
         { 'rotate-180': isOpen },
         prefersReducedMotion ? '' : 'transition-transform duration-200',

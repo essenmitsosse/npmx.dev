@@ -159,7 +159,7 @@ function getWarningTooltip(skill: SkillListItem): string | undefined {
           @click="toggleSkill(skill.dirName)"
         >
           <span
-            class="i-carbon:chevron-right w-3 h-3 text-fg-subtle shrink-0 transition-transform duration-200"
+            class="i-lucide:chevron-right w-3 h-3 text-fg-subtle shrink-0 transition-transform duration-200"
             :class="{ 'rotate-90': expandedSkills.has(skill.dirName) }"
             aria-hidden="true"
           />

@@ -200,7 +200,7 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
         {{ filterSummary }}
       </span>
       <span
-        class="i-carbon:chevron-down w-4 h-4 text-fg-subtle transition-transform duration-200 shrink-0 ms-auto"
+        class="i-lucide:chevron-down w-4 h-4 text-fg-subtle transition-transform duration-200 shrink-0 ms-auto"
         :class="{ 'rotate-180': isExpanded }"
         aria-hidden="true"
       />

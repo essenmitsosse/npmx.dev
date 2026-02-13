@@ -448,7 +448,7 @@ function majorGroupContainsCurrent(group: (typeof otherMajorGroups.value)[0]): b
               v-else
               class="w-3 h-3 transition-transform duration-200 rtl-flip"
               :class="
-                expandedTags.has(row.tag) ? 'i-carbon:chevron-down' : 'i-carbon:chevron-right'
+                expandedTags.has(row.tag) ? 'i-lucide:chevron-down' : 'i-lucide:chevron-right'
               "
               aria-hidden="true"
             />
@@ -602,7 +602,7 @@ function majorGroupContainsCurrent(group: (typeof otherMajorGroups.value)[0]): b
             <span
               v-else
               class="w-3 h-3 transition-transform duration-200 rtl-flip"
-              :class="otherVersionsExpanded ? 'i-carbon:chevron-down' : 'i-carbon:chevron-right'"
+              :class="otherVersionsExpanded ? 'i-lucide:chevron-down' : 'i-lucide:chevron-right'"
               aria-hidden="true"
             />
           </span>
@@ -702,8 +702,8 @@ function majorGroupContainsCurrent(group: (typeof otherMajorGroups.value)[0]): b
                         class="w-3 h-3 transition-transform duration-200 rtl-flip"
                         :class="
                           expandedMajorGroups.has(group.groupKey)
-                            ? 'i-carbon:chevron-down'
-                            : 'i-carbon:chevron-right'
+                            ? 'i-lucide:chevron-down'
+                            : 'i-lucide:chevron-right'
                         "
                         aria-hidden="true"
                       />

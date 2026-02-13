@@ -100,7 +100,7 @@ useHead({
           <span
             v-else
             class="w-3 h-3 transition-transform duration-200"
-            :class="isOpen ? 'i-carbon:chevron-down' : 'i-carbon:chevron-right'"
+            :class="isOpen ? 'i-lucide:chevron-down' : 'i-lucide:chevron-right'"
             aria-hidden="true"
           />
         </button>

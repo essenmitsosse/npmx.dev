@@ -371,7 +371,7 @@ watch(lastExecutionTime, () => {
             <span
               class="w-4 h-4 transition-transform duration-200 rtl-flip"
               :class="[
-                expandedTeams.has(teamName) ? 'i-carbon:chevron-down' : 'i-carbon:chevron-right',
+                expandedTeams.has(teamName) ? 'i-lucide:chevron-down' : 'i-lucide:chevron-right',
                 'text-fg-muted',
               ]"
               aria-hidden="true"
