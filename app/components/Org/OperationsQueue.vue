@@ -168,7 +168,7 @@ function getStatusIcon(status: string): string {
     case 'failed':
       return 'i-lucide:circle-x-filled'
     default:
-      return 'i-carbon:help'
+      return 'i-lucide:circle-question-mark'
   }
 }
 
