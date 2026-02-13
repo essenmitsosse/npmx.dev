@@ -120,15 +120,12 @@ function handleDisconnect() {
       >
         <span class="text-fg-subtle">$</span>
         <span class="text-fg-subtle ms-2">pnpm npmx-connector</span>
-        <button
-          type="button"
+        <ButtonBase
           :aria-label="copied ? $t('connector.modal.copied') : $t('connector.modal.copy_command')"
-          class="ms-auto text-fg-subtle p-1.5 -m-1.5 hover:text-fg transition-colors duration-200 focus-visible:outline-accent/70 rounded"
           @click="copy('pnpm npmx-connector')"
-        >
-          <span v-if="!copied" class="i-carbon:copy block w-5 h-5" aria-hidden="true" />
-          <span v-else class="i-carbon:checkmark block w-5 h-5 text-green-500" aria-hidden="true" />
-        </button>
+          class="ms-auto"
+          :classicon="copied ? 'i-carbon:checkmark text-green-500' : 'i-carbon:copy'"
+        />
       </div>
 
       <!-- TODO: Uncomment when npmx-connector is published to npm
