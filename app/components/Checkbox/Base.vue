@@ -34,7 +34,7 @@ const internalId = `checkbox-${uid}`
 <template>
   <label
     :htmlFor="internalId"
-    class="bg-bg-muted text-fg-muted border-border hover:(text-fg border-border-hover) inline-flex items-center font-mono border rounded transition-colors duration-200 border-none has-checked:(bg-fg text-bg border-fg hover:(text-bg/50)) has-disabled:(opacity-50 pointer-events-none)"
+    class="bg-bg-muted text-fg-muted hover:(text-fg bg-fg/10) inline-flex items-center font-mono rounded transition-colors duration-200 has-checked:(bg-fg/20 text-fg hover:(text-fg)) has-disabled:(opacity-50 pointer-events-none)"
     :class="{
       'text-sm px-4 py-2': size === 'medium',
       'text-xs px-2 py-0.5': size === 'small',
