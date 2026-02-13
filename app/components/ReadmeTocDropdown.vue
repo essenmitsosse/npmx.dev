@@ -151,7 +151,7 @@ function handleKeydown(event: KeyboardEvent) {
     :aria-controls="listboxId"
     @click="toggle"
     @keydown="handleKeydown"
-    classicon="i-carbon:list"
+    classicon="i-lucide:list"
     class="px-2.5"
     block
   >
