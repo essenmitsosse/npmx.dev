@@ -261,16 +261,17 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
             role="radiogroup"
             :aria-label="$t('filters.weekly_downloads')"
           >
-            <TagRadioButton
+            <RadioBase
               v-for="range in DOWNLOAD_RANGES"
               :key="range.value"
               :model-value="filters.downloadRange"
               :value="range.value"
               @update:modelValue="emit('update:downloadRange', $event as DownloadRange)"
               name="range"
+              size="small"
             >
               {{ getDownloadRangeLabelKey(range.value) }}
-            </TagRadioButton>
+            </RadioBase>
           </div>
         </fieldset>
 
@@ -284,16 +285,17 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
             role="radiogroup"
             :aria-label="$t('filters.updated_within')"
           >
-            <TagRadioButton
+            <RadioBase
               v-for="option in UPDATED_WITHIN_OPTIONS"
               :key="option.value"
               :model-value="filters.updatedWithin"
               :value="option.value"
               name="updatedWithin"
               @update:modelValue="emit('update:updatedWithin', $event as UpdatedWithin)"
+              size="small"
             >
               {{ getUpdatedWithinLabelKey(option.value) }}
-            </TagRadioButton>
+            </RadioBase>
           </div>
         </fieldset>
 
@@ -306,16 +308,17 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
             </span>
           </legend>
           <div class="flex flex-wrap gap-2" role="radiogroup" :aria-label="$t('filters.security')">
-            <TagRadioButton
+            <RadioBase
               v-for="security in SECURITY_FILTER_VALUES"
               :key="security"
               disabled
               :model-value="filters.security"
               :value="security"
               name="security"
+              size="small"
             >
               {{ getSecurityLabelKey(security) }}
-            </TagRadioButton>
+            </RadioBase>
           </div>
         </fieldset>
 
