@@ -332,42 +332,29 @@ const endDate = computed(() => {
             {{ $t('package.versions.distribution_title') }}
           </label>
           <div
-            class="flex items-center bg-bg-subtle border border-border rounded-md"
+            class="flex gap-2 items-center"
             role="group"
             :aria-label="$t('package.versions.distribution_title')"
             tabindex="0"
             @keydown="handleGroupingKeydown"
           >
-            <button
-              type="button"
-              :class="[
-                'px-4 py-1.75 font-mono text-sm transition-colors rounded-s-md',
-                groupingMode === 'major'
-                  ? 'bg-accent text-bg font-medium'
-                  : 'text-fg-subtle hover:text-fg hover:bg-bg-subtle/50',
-              ]"
-              :aria-pressed="groupingMode === 'major'"
+            <RadioBase
+              :model-value="groupingMode"
+              :value="'major'"
               :disabled="pending"
-              tabindex="-1"
-              @click="groupingMode = 'major'"
+              @update:modelValue="groupingMode = 'major'"
             >
               {{ $t('package.versions.grouping_major') }}
-            </button>
-            <button
-              type="button"
-              :class="[
-                'px-4 py-1.75 font-mono text-sm transition-colors rounded-e-md border-is border-border',
-                groupingMode === 'minor'
-                  ? 'bg-accent text-bg font-medium'
-                  : 'text-fg-subtle hover:text-fg hover:bg-bg-subtle/50',
-              ]"
-              :aria-pressed="groupingMode === 'minor'"
+            </RadioBase>
+            <RadioBase
+              :model-value="groupingMode"
+              :value="'minor'"
               :disabled="pending"
-              tabindex="-1"
               @click="groupingMode = 'minor'"
+              @update:model-value="groupingMode = 'minor'"
             >
               {{ $t('package.versions.grouping_minor') }}
-            </button>
+            </RadioBase>
           </div>
         </div>
 
