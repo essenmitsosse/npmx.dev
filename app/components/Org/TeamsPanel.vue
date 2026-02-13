@@ -272,7 +272,7 @@ watch(lastExecutionTime, () => {
         @click="loadTeams"
       >
         <span
-          class="i-carbon:renew w-4 h-4"
+          class="i-lucide:refresh-ccw w-4 h-4"
           :class="{ 'animate-spin': isLoadingTeams }"
           aria-hidden="true"
         />

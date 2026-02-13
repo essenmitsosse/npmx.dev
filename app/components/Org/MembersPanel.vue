@@ -316,7 +316,7 @@ watch(lastExecutionTime, () => {
         @click="refreshData"
       >
         <span
-          class="i-carbon:renew w-4 h-4"
+          class="i-lucide:refresh-ccw w-4 h-4"
           :class="{ 'motion-safe:animate-spin': isLoading || isLoadingTeams }"
           aria-hidden="true"
         />

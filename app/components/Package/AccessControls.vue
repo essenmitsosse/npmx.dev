@@ -163,7 +163,7 @@ watch(
         @click="loadCollaborators"
       >
         <span
-          class="i-carbon:renew w-3.5 h-3.5"
+          class="i-lucide:refresh-ccw w-3.5 h-3.5"
           :class="{ 'motion-safe:animate-spin': isLoadingCollaborators }"
           aria-hidden="true"
         />

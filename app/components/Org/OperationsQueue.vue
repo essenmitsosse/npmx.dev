@@ -211,7 +211,7 @@ watch(isExecuting, executing => {
           :aria-label="$t('operations.queue.refresh')"
           @click="refreshState"
         >
-          <span class="i-carbon:renew w-4 h-4" aria-hidden="true" />
+          <span class="i-lucide:refresh-ccw w-4 h-4" aria-hidden="true" />
         </button>
       </div>
     </div>
