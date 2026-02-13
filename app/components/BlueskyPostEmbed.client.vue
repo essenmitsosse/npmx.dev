@@ -116,7 +116,7 @@ const { data: post, status } = useAsyncData(
         {{ post.likeCount }}
       </span>
       <span v-if="post.repostCount" class="flex items-center gap-1">
-        <span class="i-carbon:repeat w-3.5 h-3.5" aria-hidden="true" />
+        <span class="i-lucide:repeat w-3.5 h-3.5" aria-hidden="true" />
         {{ post.repostCount }}
       </span>
       <span v-if="post.replyCount" class="flex items-center gap-1">
