@@ -193,7 +193,7 @@ function getWarningTooltip(skill: SkillListItem): string | undefined {
               <!-- File counts & warnings -->
               <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
                 <span v-if="skill.fileCounts?.scripts" class="text-fg-subtle">
-                  <span class="i-carbon:script size-3 align-[-2px] me-0.5" />{{
+                  <span class="i-lucide:file-code size-3 align-[-2px] me-0.5" />{{
                     $t(
                       'package.skills.file_counts.scripts',
                       { count: skill.fileCounts.scripts },
