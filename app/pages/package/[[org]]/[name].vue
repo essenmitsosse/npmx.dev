@@ -873,7 +873,7 @@ const showSkeleton = shallowRef(false)
             </li>
             <li class="basis-full sm:hidden" />
             <li v-if="homepageUrl">
-              <LinkBase :to="homepageUrl" classicon="i-carbon:link">
+              <LinkBase :to="homepageUrl" classicon="i-lucide:link">
                 {{ $t('package.links.homepage') }}
               </LinkBase>
             </li>

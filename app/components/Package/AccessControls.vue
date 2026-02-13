@@ -202,7 +202,7 @@ watch(
           />
           <span
             v-else
-            class="i-carbon:user w-3.5 h-3.5 text-fg-subtle shrink-0"
+            class="i-lucide:user w-3.5 h-3.5 text-fg-subtle shrink-0"
             aria-hidden="true"
           />
           <span class="font-mono text-sm text-fg-muted truncate">
