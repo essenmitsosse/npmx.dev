@@ -1481,7 +1481,7 @@ watch(selectedMetric, value => {
             </label>
             <div class="relative flex items-center">
               <span
-                class="absolute inset-is-2 i-carbon:calendar w-4 h-4 text-fg-subtle shrink-0 pointer-events-none"
+                class="absolute inset-is-2 i-lucide:calendar w-4 h-4 text-fg-subtle shrink-0 pointer-events-none"
                 aria-hidden="true"
               />
               <InputBase
@@ -1501,7 +1501,7 @@ watch(selectedMetric, value => {
             </label>
             <div class="relative flex items-center">
               <span
-                class="absolute inset-is-2 i-carbon:calendar w-4 h-4 text-fg-subtle shrink-0 pointer-events-none"
+                class="absolute inset-is-2 i-lucide:calendar w-4 h-4 text-fg-subtle shrink-0 pointer-events-none"
                 aria-hidden="true"
               />
               <InputBase

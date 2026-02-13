@@ -240,7 +240,7 @@ function downloadIcs() {
           </p>
 
           <!-- Add to calendar button -->
-          <ButtonBase classicon="i-carbon:calendar" @click="downloadIcs">
+          <ButtonBase classicon="i-lucide:calendar" @click="downloadIcs">
             {{ $t('vacations.return.add_to_calendar') }}
           </ButtonBase>
         </div>
