@@ -539,7 +539,7 @@ const endDate = computed(() => {
             </template>
 
             <template #annotator-action-color="{ color }">
-              <span class="i-carbon:color-palette w-6 h-6" :style="{ color }" aria-hidden="true" />
+              <span class="i-lucide:palette w-6 h-6" :style="{ color }" aria-hidden="true" />
             </template>
 
             <template #annotator-action-undo>
