@@ -30,7 +30,7 @@ function handleClick(event: MouseEvent) {
     const icon = copyTarget.querySelector('span')
     if (!icon) return
 
-    const originalIcon = 'i-carbon:copy'
+    const originalIcon = 'i-lucide:copy'
     const successIcon = 'i-lucide:check'
 
     icon.classList.remove(originalIcon)

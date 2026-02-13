@@ -121,7 +121,7 @@ function handleDisconnect() {
           :aria-label="copied ? $t('connector.modal.copied') : $t('connector.modal.copy_command')"
           @click="copy('pnpm npmx-connector')"
           class="ms-auto"
-          :classicon="copied ? 'i-lucide:check text-green-500' : 'i-carbon:copy'"
+          :classicon="copied ? 'i-lucide:check text-green-500' : 'i-lucide:copy'"
         />
       </div>
 
@@ -142,7 +142,7 @@ function handleDisconnect() {
                           class="ms-auto text-fg-subtle p-1.5 -m-1.5 hover:text-fg transition-colors duration-200 focus-visible:outline-accent/70 rounded"
                           @click="copyCommand"
                         >
-                          <span v-if="!copied" class="i-carbon:copy block w-5 h-5" aria-hidden="true" />
+                          <span v-if="!copied" class="i-lucide:copy block w-5 h-5" aria-hidden="true" />
                           <span
                             v-else
                             class="i-lucide:check block w-5 h-5 text-green-500"

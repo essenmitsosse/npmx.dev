@@ -692,7 +692,7 @@ const showSkeleton = shallowRef(false)
               :aria-label="copiedPkgName ? $t('common.copied') : $t('package.copy_name')"
             >
               <span
-                :class="copiedPkgName ? 'i-lucide:check' : 'i-carbon:copy'"
+                :class="copiedPkgName ? 'i-lucide:check' : 'i-lucide:copy'"
                 class="w-3.5 h-3.5"
                 aria-hidden="true"
               />
