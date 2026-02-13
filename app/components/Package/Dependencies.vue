@@ -119,7 +119,7 @@ const numberFormatter = useNumberFormatter()
               :to="packageRoute(dep, getDeprecatedDepInfo(dep)!.version)"
               class="shrink-0 text-purple-700 dark:text-purple-500"
               :title="getDeprecatedDepInfo(dep)!.message"
-              classicon="i-lucide:circle-alert-hex"
+              classicon="i-lucide:octagon-alert"
             >
               <span class="sr-only">{{ $t('package.deprecated.label') }}</span>
             </LinkBase>
