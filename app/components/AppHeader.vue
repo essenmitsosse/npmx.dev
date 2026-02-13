@@ -22,7 +22,7 @@ const desktopLinks = computed<NavigationConfig>(() => [
     keyshortcut: 'c',
     type: 'link',
     external: false,
-    iconClass: 'i-carbon:compare',
+    iconClass: 'i-lucide:git-compare',
   },
   {
     name: 'Settings',

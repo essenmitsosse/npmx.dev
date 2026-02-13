@@ -777,7 +777,7 @@ const showSkeleton = shallowRef(false)
               variant="button-secondary"
               :to="{ name: 'compare', query: { packages: pkg.name } }"
               aria-keyshortcuts="c"
-              classicon="i-carbon:compare"
+              classicon="i-lucide:git-compare"
             >
               {{ $t('package.links.compare') }}
             </LinkBase>
