@@ -158,7 +158,7 @@ defineOgImageComponent('Default', {
               class="link-subtle font-mono text-sm inline-flex items-center gap-1.5"
               :title="$t('common.view_on_npm')"
             >
-              <span class="i-carbon:logo-npm w-4 h-4" aria-hidden="true" />
+              <span class="i-simple-icons:npm w-4 h-4" aria-hidden="true" />
               npm
             </a>
           </nav>

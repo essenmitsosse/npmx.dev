@@ -886,7 +886,7 @@ const showSkeleton = shallowRef(false)
               <LinkBase
                 :to="`https://www.npmjs.com/package/${pkg.name}`"
                 :title="$t('common.view_on_npm')"
-                classicon="i-carbon:logo-npm"
+                classicon="i-simple-icons:npm"
               >
                 npm
               </LinkBase>
