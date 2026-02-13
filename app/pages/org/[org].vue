@@ -190,7 +190,7 @@ defineOgImageComponent('Default', {
             class="text-fg-subtle text-xs mt-1 flex items-center gap-1.5 justify-end cursor-help"
             :title="$t('common.vanity_downloads_hint', { count: filteredCount }, filteredCount)"
           >
-            <span class="i-carbon:chart-line w-3.5 h-3.5" aria-hidden="true" />
+            <span class="i-lucide:chart-line w-3.5 h-3.5" aria-hidden="true" />
             <span class="font-mono"
               >{{ $n(totalWeeklyDownloads) }} {{ $t('common.per_week') }}</span
             >
