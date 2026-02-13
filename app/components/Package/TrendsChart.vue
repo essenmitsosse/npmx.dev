@@ -1523,7 +1523,7 @@ watch(selectedMetric, value => {
           class="self-end flex items-center justify-center px-2.5 py-1.75 border border-transparent rounded-md text-fg-subtle hover:text-fg transition-colors hover:border-border focus-visible:outline-accent/70 sm:mb-0"
           @click="resetDateRange"
         >
-          <span class="i-carbon:reset w-5 h-5" aria-hidden="true" />
+          <span class="i-lucide:undo-2 w-5 h-5" aria-hidden="true" />
         </button>
       </div>
     </div>
