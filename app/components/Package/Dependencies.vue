@@ -102,7 +102,7 @@ const numberFormatter = useNumberFormatter()
               aria-hidden="true"
               :text="getOutdatedTooltip(outdatedDeps[dep], $t)"
             >
-              <span class="i-lucide:circle-alert-alt w-3 h-3" />
+              <span class="i-lucide:circle-alert w-3 h-3" />
             </TooltipApp>
             <LinkBase
               v-if="getVulnerableDepInfo(dep)"

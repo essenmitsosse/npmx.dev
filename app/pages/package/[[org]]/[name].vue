@@ -1149,7 +1149,7 @@ const showSkeleton = shallowRef(false)
             class="mb-4 rounded-lg border border-amber-600/40 bg-amber-500/10 px-4 py-3 text-amber-700 dark:text-amber-400"
           >
             <h3 class="m-0 flex items-center gap-2 font-mono text-sm font-medium">
-              <span class="i-lucide:circle-alert-alt w-4 h-4 shrink-0" aria-hidden="true" />
+              <span class="i-lucide:circle-alert w-4 h-4 shrink-0" aria-hidden="true" />
               {{ $t('package.security_downgrade.title') }}
             </h3>
             <p class="mt-2 mb-0 text-sm">
