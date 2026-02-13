@@ -11,7 +11,7 @@ const socialLinks = computed(() => [
   {
     id: 'discord',
     href: 'https://chat.npmx.dev',
-    icon: 'i-carbon:chat',
+    icon: 'i-lucide:message-circle',
     titleKey: $t('about.get_involved.community.title'),
     descriptionKey: $t('about.get_involved.community.description'),
     ctaKey: $t('about.get_involved.community.cta'),

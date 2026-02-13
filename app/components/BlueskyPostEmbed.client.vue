@@ -120,7 +120,7 @@ const { data: post, status } = useAsyncData(
         {{ post.repostCount }}
       </span>
       <span v-if="post.replyCount" class="flex items-center gap-1">
-        <span class="i-carbon:chat w-3.5 h-3.5" aria-hidden="true" />
+        <span class="i-lucide:message-circle w-3.5 h-3.5" aria-hidden="true" />
         {{ post.replyCount }}
       </span>
     </div>
